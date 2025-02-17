@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog写作</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #FF6900;">
+        <div class="container">
+            <a id="dhl" class="nav-link" href="{{ url_for('index') }}" style="color: azure;text-align:right;font-size: larger;">Guo Siyu(20222601017)做的一个博客站</a>
+            <ul class="nav justify-content-left">
+                {% if not usernow %} {% else %}
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color: aquamarine;">欢迎您，{{ usernow }} </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}" style="color: black;font-size: larger;">退出登录</a>
+                </li>
+                {% endif %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">主页</a>
+                </li>
+
+                {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">写作</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('issue') }}">写作</a>
+                </li>
+                {% endif %} {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">图片</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('img') }}">图片</a>
+                </li>
+                {% endif %} {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">管理</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('manage') }}">管理</a>
+                </li>
+                {% endif %}
+
+                <li class="nav-item">
+                    {% if not usernow %}
+                    <a class="nav-link" href="{{ url_for('login') }}">登录</a> {% else %} {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h3>新文章发布</h3>
+        <form action="{{ url_for('issue') }}" method="POST">
+            <div class="form-group">
+                <label>作者: </label>
+                <input type="text" class="form-control" readonly="readonly" name="username" value="{{ usernow }}">
+            </div>
+            <div class="form-group">
+                <label>时间: </label>
+                <input type="date" class="form-control" name="issue_date">
+            </div>
+            <div class="form-group">
+                <label>标题: </label>
+                <input type="text" class="form-control" name="title" placeholder="请输入标题">
+            </div>
+            <div class="form-group">
+                <label>内容: </label>
+                <div id="editor" style="height: 300px;background-color: antiquewhite;"></div>
+                <input type="hidden" name="content">
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">发表</button>
+        </form>
+    </div>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+
+        document.querySelector('form').onsubmit = function() {
+            var content = document.querySelector('input[name=content]');
+            content.value = quill.root.innerHTML;
+        };
+    </script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+</body>
+
+</html>

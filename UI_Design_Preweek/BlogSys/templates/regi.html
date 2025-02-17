@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog注册</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #FF6900;">
+        <div class="container">
+            <a id="dhl" class="nav-link" href="{{ url_for('index') }}" style="color: azure;text-align:right;font-size: larger;">Guo Siyu(20222601017)做的一个博客站</a>
+            <ul class="nav justify-content-left">
+                {% if not usernow %} {% else %}
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color: aquamarine;">欢迎您，{{ usernow }} </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}" style="color: black;font-size: larger;">退出登录</a>
+                </li>
+                {% endif %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">主页</a>
+                </li>
+
+                {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">写作</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('issue') }}">写作</a>
+                </li>
+                {% endif %} {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">图片</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('img') }}">图片</a>
+                </li>
+                {% endif %} {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">管理</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('manage') }}">管理</a>
+                </li>
+                {% endif %}
+
+                <li class="nav-item">
+                    {% if not usernow %}
+                    <a class="nav-link" href="{{ url_for('login') }}">登录</a> {% else %} {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="login-form">
+            <br>
+            <h2 class="text-center">注册</h2>
+            <p style="text-align: center;">请输入用户名、密码和电子邮箱完成注册</p>
+            <form action="{{ url_for('regi_submit')}}" method="post" onsubmit="return checkPassword()">
+                <div class="mb-3">
+                    <label for="username" class="form-label">设定用户名</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">设定密码</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+                </div>
+                <div class="mb-3">
+                    <label for="confirmPassword" class="form-label">确认密码</label>
+                    <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="请再次输入密码">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">设定电子邮箱</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="请输入电子邮箱">
+                </div>
+                <button type="submit" class="btn btn-warning w-100">注册</button>
+            </form>
+        </div>
+    </div>
+
+
+</body>
+<script src="{{url_for('static', filename='/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url_for('static', filename='/js/checkpwd.js')}}"></script>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog管理</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #FF6900;">
+        <div class="container">
+            <a id="dhl" class="nav-link" href="{{ url_for('index') }}" style="color: azure;text-align:right;font-size: larger;">Guo Siyu(20222601017)做的一个博客站</a>
+            <ul class="nav justify-content-left">
+                {% if not usernow %} {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" style="color: aquamarine;">欢迎您，{{ usernow }} </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}" style="color: black;font-size: larger;">退出登录</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">主页</a>
+                </li>
+                {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">写作</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('issue') }}">写作</a>
+                </li>
+                {% endif %} {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">图片</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('img') }}">图片</a>
+                </li>
+                {% endif %} {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">管理</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('manage') }}">管理</a>
+                </li>
+                {% endif %}
+                <li class="nav-item">
+                    {% if not usernow %}
+                    <a class="nav-link" href="{{ url_for('login') }}">登录</a> {% else %} {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h3>管理文章</h3>
+        {% if posts %}
+        <div class="row">
+            {% for post in posts %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.title }}</h5>
+                        <p class="card-text">发布时间: {{ post.issue_date }}</p>
+                        <form action="{{ url_for('delete_post', post_id=post.id) }}" method="post">
+                            <button type="submit" class="btn btn-danger">删除</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% else %}
+        <p>您还没有发布文章。</p>
+        {% endif %}
+    </div>
+</body>
+<script src="{{ url_for('static', filename='/js/bootstrap.bundle.min.js') }}"></script>
+
+</html>

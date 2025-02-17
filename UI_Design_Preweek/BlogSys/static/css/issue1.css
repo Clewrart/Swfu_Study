@@ -1,0 +1,32 @@
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+textarea {
+    resize: none;
+    margin: 10px;
+}
+
+#title {
+    width: 600px;
+    height: 60px;
+    border-color: gray;
+    border-radius: 6px;
+}
+
+#content {
+    width: 850px;
+    height: 600px;
+    border-color: gray;
+    border-radius: 6px;
+}
+
+#editor {
+    width: 950px;
+    height: 600px;
+    border-color: gray;
+    border-radius: 6px;
+}

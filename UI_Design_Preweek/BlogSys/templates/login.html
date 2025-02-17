@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog登录</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #FF6900;">
+        <div class="container">
+            <a id="dhl" class="nav-link" href="{{ url_for('index') }}" style="color: azure;text-align:right;font-size: larger;">Guo Siyu(20222601017)做的一个博客站</a>
+            <ul class="nav justify-content-left">
+                {% if not usernow %} {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" style="color: aquamarine;">欢迎您，{{ usernow }} </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}" style="color: black;font-size: larger;">退出登录</a>
+                </li>
+                {% endif %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('index') }}">主页</a>
+                </li>
+
+                {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">写作</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('issue') }}">写作</a>
+                </li>
+                {% endif %} {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">图片</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('img') }}">图片</a>
+                </li>
+                {% endif %} {% if not usernow %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('login') }}">管理</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('manage') }}">管理</a>
+                </li>
+                {% endif %}
+
+                <li class="nav-item">
+                    {% if not usernow %}
+                    <a class="nav-link" href="{{ url_for('login') }}">登录</a> {% else %} {% endif %}
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="login-form">
+            <br>
+            <h2 class="text-center">登录</h2>
+            <p style="text-align: center;">请输入用户名和密码完成登录<br><a style="color: red;">如果你是首次访问请注册！</a><br><a style="color: red;font-size: larger;">如果填写信息后此页面未跳转，表明您的用户名或密码有错，请重试或注册！！</a></p>
+            <form action="{{ url_for('login_submit')}}" method="post">
+                <div class="mb-3">
+                    <label for="username" class="form-label">用户名</label>
+                    <input type="text" class="form-control" name="username" required placeholder="请输入用户名">
+                </div>
+                <div class="mb-3">
+                    <label for="password" class="form-label">密码</label>
+                    <input type="password" class="form-control" name="password" required placeholder="请输入密码">
+                </div>
+                <button type="submit" class="btn btn-primary w-100">登录</button>
+            </form>
+            <div class="text-center mt-3">
+                <a href="{{url_for('regi')}}" class="btn btn-secondary w-100">首次访问？让我们从注册开始！</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{url_for('static', filename='/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{url_for('static', filename='/js/checkusrpwd.js')}}"></script>
+</body>
+
+</html>

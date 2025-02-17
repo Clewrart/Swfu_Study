@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg" style="background-color: #FF6900;">
+    <div class="container">
+        <a id="dhl" class="nav-link" href="{{ url_for('index') }}" style="color: azure;text-align:right;font-size: larger;">Guo Siyu(20222601017)做的一个博客站</a>
+        <ul class="nav justify-content-left">
+            {% if not usernow %} {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('uploaded_file') }}">上传图片</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" style="color: aquamarine;">欢迎您，{{ usernow }} </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('logout') }}" style="color: black;font-size: larger;">退出登录</a>
+            </li>
+            {% endif %}
+
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('index') }}">主页</a>
+            </li>
+
+            {% if not usernow %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">写作</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('issue') }}">写作</a>
+            </li>
+            {% endif %} {% if not usernow %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">图片</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('img') }}">图片</a>
+            </li>
+            {% endif %} {% if not usernow %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('login') }}">管理</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{{ url_for('manage') }}">管理</a>
+            </li>
+            {% endif %}
+
+            <li class="nav-item">
+                {% if not usernow %}
+                <a class="nav-link" href="{{ url_for('login') }}">登录</a> {% else %} {% endif %}
+            </li>
+        </ul>
+    </div>
+</nav>
