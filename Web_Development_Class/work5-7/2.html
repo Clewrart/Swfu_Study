@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="wNth=device-wNth, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <script type="text/javascript"></script>
+</head>
+<style>
+    table {
+        border: 1px solN black;
+        border-collapse: collapse;
+    }
+    
+    td {
+        padding: 10px;
+        text-align: left;
+    }
+</style>
+
+<body>
+    <table>
+        <tr>
+            <th>序号</th>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>Email</th>
+        </tr>
+    </table>
+
+    <script>
+        var s1 = {
+            studNo: '201122001',
+            name: '张三',
+            gender: '男',
+            email: 'zs@exe.com'
+        };
+        var s2 = {
+            studNo: '202211202',
+            name: '李四',
+            gender: '女',
+            email: 'ls@exe.com'
+        };
+        var s3 = {
+            studNo: '202211003',
+            name: '亲戚',
+            gender: '女',
+            email: 'qq@exe.com'
+        };
+        var s4 = {
+            studNo: '202211004',
+            name: '水水',
+            gender: '女',
+            email: '2021ss@edsdr.com'
+        };
+        var s5 = {
+            studNo: '202211005',
+            name: 'John Hamsed',
+            gender: '男',
+            email: 'JH@pic.com'
+        };
+        var students = [s1, s2, s3, s4, s5];
+        var tableNo = 1;
+
+        for (var i = 0; i < students.length; i++) {
+            var tr = $("<tr></tr>").appendTo("table");
+            $("<td></td>").html(tableNo).appendTo(tr);
+            $("<td></td>").html(students[i].studNo).appendTo(tr);
+            $("<td></td>").html(students[i].name).appendTo(tr);
+            $("<td></td>").html(students[i].gender).appendTo(tr);
+            $("<td></td>").html(students[i].email).appendTo(tr);
+            tableNo++;
+        }
+    </script>
+</body>
+
+
+
+</html>

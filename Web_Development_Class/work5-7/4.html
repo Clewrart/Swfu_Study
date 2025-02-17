@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <script type="text/javascript"></script>
+</head>
+
+<style>
+    .div-container {
+        margin: 20px;
+    }
+    
+    .div-item {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 10px;
+        background-color: rgb(0, 238, 255);
+        color: white;
+        text-align: center;
+        line-height: 100px;
+        cursor: pointer;
+    }
+</style>
+
+
+<body>
+    <div class="div-container">
+        <div class="div-item" id="div1">Div 1</div>
+        <div class="div-item" id="div2">Div 2</div>
+        <div class="div-item" id="div3">Div 3</div>
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        $('#div1').click(function() {
+            var index = 0;
+
+            function hideDiv() {
+                if (index < $('.div-item').length) {
+                    $($('.div-item')[index]).hide(3000);
+                    index++;
+                    setTimeout(hideDiv, 3000);
+                }
+            }
+            hideDiv();
+        });
+    });
+</script>
+
+</html>

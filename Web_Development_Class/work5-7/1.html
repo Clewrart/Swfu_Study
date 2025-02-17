@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <script type="text/javascript"></script>
+
+</head>
+
+<body>
+    <button id="addButton">添加内容</button>
+
+    <table id="myTable">
+
+        <tr>
+            <th>序号</th>
+            <th>内容</th>
+        </tr>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        const arrStr = ["SWFU", "BJFU", "ENFU", "NJFU", "SHFU", "SZFU"];
+        const button = document.getElementById('addButton');
+        const bg = document.getElementById('myTable').getElementsByTagName('tbody')[0];
+
+        // 添加按钮点击事件
+        button.addEventListener('click', () => {
+            arrStr.forEach(item => {
+                const newRow = bg.insertRow();
+                newRow.insertCell().textContent = arrStr.indexOf(item) + 1;
+                const newCell = newRow.insertCell();
+                newCell.textContent = item; //设置单元格内容
+            });
+        });
+    </script>
+
+
+</html>

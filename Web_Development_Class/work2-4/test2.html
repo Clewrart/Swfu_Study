@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百钱百鸡</title>
+
+    <script type="text/javascript">
+        function ikun() {
+            var results = "";
+            for (var x = 0; x <= 20; x++) { // 公鸡最多20只
+                for (var y = 0; y <= 33; y++) { // 母鸡最多33只
+                    var z = 100 - x - y;
+                    // 1元5只小鸡
+                    if (z % 5 === 0 && (5 * x + 3 * y + z / 5) === 100) {
+
+                        results += "方案：公鸡能买 " + x + " 只，母鸡能买 " + y + " 只，小鸡能买 " + z + " 只<br>";
+                    }
+                }
+            }
+            document.getElementById("result").innerHTML = results;
+        }
+    </script>
+</head>
+
+<body>
+    <h1>百钱百鸡</h1>
+    <button onclick="ikun()">计算</button>
+    <div id="result"></div>
+</body>
+</head>
+
+
+
+</html>

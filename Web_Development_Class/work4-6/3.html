@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".btn1").click(function() {
+                $("p").slideUp();
+            });
+            $(".btn2").click(function() {
+                $("p").slideDown();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <p>This is a paragraph!</p>
+    <button class="btn1">Hide</button>
+    <button class="btn2">Show</button>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电话号码升位</title>
+</head>
+
+<body>
+    <h1>电话号码升位程序</h1>
+    <div class="input-group">
+        <label for="phone">输入电话号码: </label>
+        <input type="text" id="phone">
+    </div>
+    <button onclick="Telprocess()">升位</button>
+
+    <p id="result"></p>
+
+    <script>
+        function Telprocess() {
+            const phone = document.getElementById('phone').value;
+            const [areaCode, number] = phone.split('-');
+
+            // 提取号码的最高位并升位，前补“6”
+            const upgradedNumber = '6' + (parseInt(number[0]) + 1) + number.slice(1);
+
+            // 显示升位后的号码
+            const result = `${areaCode}-${upgradedNumber}`;
+            document.getElementById('result').innerText = `升位后号码: ${result}`;
+        }
+    </script>
+</body>
+
+</html>

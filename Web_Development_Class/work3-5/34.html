@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敏感词检测统计</title>
+</head>
+
+<body>
+
+    <input type="text" id="textInput" placeholder="一句话"><br>
+    <button onclick="checkWords()">检测敏感词</button>
+    <p id="result"></p>
+
+    <script>
+        let mgWords = ["西南", "林业", "大学"]; //数组
+
+        function checkWords() {
+            let text = document.getElementById("textInput").value;
+            let result = '';
+            let tongji = {};
+
+            //循环
+            mgWords.forEach(word => {
+                let count = (text.split(word).length - 1);
+                if (count > 0) {
+                    tongji[word] = count;
+                }
+            });
+
+            if (Object.keys(tongji).length > 0) {
+                result = '检测到敏感词：\n';
+                for (let word in tongji) {
+                    result += `敏感词"${word}" 出现了 ${tongji[word]} 次\n`;
+                }
+            } else {
+                result = "未检测到敏感词。";
+            }
+
+            document.getElementById("result").innerText = result;
+        }
+    </script>
+
+</body>
+
+</html>

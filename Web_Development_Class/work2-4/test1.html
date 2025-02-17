@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>阶乘</title>
+
+    <script type="text/javascript">
+        function jiecheng() {
+            var n = parseInt(document.getElementById("input").value);
+            var sum = 0;
+            for (var i = 1; i <= n; i++) {
+                sum += jiecheng_cal(i);
+            }
+            document.getElementById("result").innerHTML = "结果: " + sum;
+        }
+
+        function jiecheng_cal(num) {
+            if (num <= 1) return 1;
+            return num * jiecheng_cal(num - 1);
+        }
+    </script>
+</head>
+
+<body>
+    <input type="number" id="input" placeholder="请输入一个数字">
+    <button onclick="jiecheng()">计算</button>
+    <div id="result"></div>
+</body>
+
+</html>

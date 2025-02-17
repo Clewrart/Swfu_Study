@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script src="../jquery-3.7.1.js"></script>
+    <script type="text/javascript"></script>
+</head>
+
+<style>
+    table,
+    th,
+    td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+    
+    th,
+    td {
+        padding: 10px;
+        text-align: left;
+    }
+</style>
+
+<body>
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>序号</th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>性别</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+
+            for (let i = 101; i <= 202; i++) {
+                let sexchoose;
+                if (i % 2 == 0) {
+                    sexchoose = $('<td>').text('女');
+                } else {
+                    sexchoose = $('<td>').text('男');
+                }
+
+                $('#studentTable tbody').append(
+                    $('<tr>').append(
+                        $('<td>').text(i - 100),
+                        $('<td>').text(`202323W${i}`), //补0
+                        $('<td>').text(`学生${i-100}`),
+                        sexchoose
+                    )
+                );
+            }
+        });
+    </script>
+</body>
+
+</html>

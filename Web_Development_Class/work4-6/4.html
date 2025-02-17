@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../jquery-3.7.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(".head1").click(function() {
+                $(".content1").slideDown();
+                $(".content2").slideUp();
+            });
+            $(".head2").click(function() {
+                $(".content1").slideUp();
+                $(".content2").slideDown();
+            });
+        });
+    </script>
+</head>
+<style>
+    div {
+        width: 200px;
+        height: auto;
+        background-color: yellow;
+        border: 1px solid black;
+    }
+    
+    .content1 {
+        display: none;
+    }
+    
+    .content2 {
+        display: none;
+    }
+</style>
+
+<body>
+    <div class="head1">Head 1</div>
+    <div class="content1">THis is Head1THis is Head1THis is Head1THis is Head1THis is Head1THis is Head1THis is Head1THis is Head1THis is Head1THis is Head1THis is Head1</div>
+    <div class="head2">Head 2</div>
+    <div class="content2">THis is Head2THis is Head2THis is Head2THis is Head2THis is Head2THis is Head2THis is Head2THis is Head2THis is Head2THis is Head2THis is Head2</div>
+</body>
+
+</html>

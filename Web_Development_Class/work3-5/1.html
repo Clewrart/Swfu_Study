@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>矩形生成器</title>
+    <style>
+        .container {
+            width: 600px;
+            height: 400px;
+            border: 2px solid #000;
+            position: relative;
+        }
+        
+        .rectangle {
+            position: absolute;
+        }
+        
+        .ee {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>矩形生成器</h1>
+    <div class="ee">
+        <label for="width">宽度(px): </label>
+        <input type="number" id="width" placeholder="宽度">
+    </div>
+    <div class="ee">
+        <label for="height">高度(px): </label>
+        <input type="number" id="height" placeholder="高度">
+    </div>
+    <div class="ee">
+        <label for="color">颜色: </label>
+        <input type="text" id="color" placeholder="颜色 (颜色英文，#hex，rgb(r,g,b))">
+    </div>
+    <div class="ee">
+        <label for="margin">边距(px): </label>
+        <input type="number" id="margin" placeholder="边距">
+    </div>
+    <button onclick="creatJX()">生成矩形</button>
+
+    <div class="container" id="container"></div>
+
+    <script>
+        function creatJX() {
+            const container = document.getElementById('container');
+            const width = document.getElementById('width').value;
+            const height = document.getElementById('height').value;
+            const color = document.getElementById('color').value;
+            const margin = document.getElementById('margin').value;
+
+            const rectangle = document.createElement('div');
+            rectangle.classList.add('rectangle');
+            rectangle.style.width = `${width}px`;
+            rectangle.style.height = `${height}px`;
+            rectangle.style.backgroundColor = color;
+            rectangle.style.margin = `${margin}px`;
+
+            container.innerHTML = ''; // 清空之前的矩形
+            container.appendChild(rectangle);
+        }
+    </script>
+</body>
+
+</html>
