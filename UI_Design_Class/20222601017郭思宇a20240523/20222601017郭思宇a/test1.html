@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 onclick="showbtn()">你好，点击这里产生按钮
+        <span id="span1"></span>
+    </h1>
+
+    <h1 onclick="showdiv()">你好，点击这里产生div
+        <span id="span2"></span>
+    </h1>
+
+    <h1 onclick="showa()">你好，点击这里产生a
+        <span id="span3"></span>
+    </h1>
+</body>
+
+<script>
+    span1.innerHTML = "";
+    span2.innerHTML = "";
+    span3.innerHTML = "";
+
+    function showbtn() {
+        var span1 = document.getElementById("span1");
+        var button1 = '<button type="button"><h1>666btn</h1></button>';
+        span1.innerHTML = button1;
+    }
+
+    function showdiv() {
+        var div1 = '<div><h2>这是div元素</p></div>';
+        var span2 = document.getElementById("span2");
+        span2.innerHTML = div1;
+    }
+
+    function showa() {
+        var a1 = '<a><h2>这是a元素</h2><a>';
+        var span3 = document.getElementById("span3");
+        span3.innerHTML = a1;
+    }
+</script>
+
+</html>

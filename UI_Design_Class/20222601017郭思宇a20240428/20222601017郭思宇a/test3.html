@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录页</title>
+</head>
+
+<body>
+    <form action="test2.html" method="post">
+        <p>账号：<input type="text" placeholder="name" id="name" name="name" /></p>
+        <p>密码：<input type="password" placeholder="key" id="pwd" name="password" /> </p>
+        <p>用户确认：<input type="radio"></p>
+        <p><button type="submit">登录</button>
+            <input type="reset" value="重置表单内容" />
+            <input type="button" value="自定义按钮" /></p>
+
+        <p>
+            <fieldset style="width: 100px;">
+                <legend>用户类型</legend>
+                <label><input type="radio" id="A" name="fave"/>Group A</label>
+                <label><input type="radio" id="B" name="fave"/>Group B</label>
+                <label><input type="radio" id="C" name="fave"/>Group C</label>
+            </fieldset>
+        </p>
+
+        <p>性别
+            <select>
+                <option>男</option>
+                <option>女</option>
+                <option>LGBTQ+</option>
+                <option>不便透露</option>
+            </select>
+        </p>
+
+        <p>
+            座位/结构列表
+            <select>
+            <optgroup label="1区">
+                    <optgroup label="Group A">
+                        <option value="1a1">1a1</option>
+                        <option value="1a2">1a2</option>
+                        <option value="1a3">1a3</option>
+                    </optgroup>
+                    <optgroup label="Group B">
+                        <option value="1b1">1b1</option>
+                        <option value="1b2">1b2</option>
+                        <option value="1b3">1b3</option>
+                    </optgroup>
+            </optgroup>
+
+            <optgroup label="2区">
+                    <optgroup label="Group A">
+                        <option value="2a1">2a1</option>
+                        <option value="2a2">2a2</option>
+                        <option value="2a3">2a3</option>
+                    </optgroup>
+                    <optgroup label="Group B">
+                        <option value="2b1">2b1</option>
+                        <option value="2b2">2b2</option>
+                        <option value="2b3">2b3</option>
+                    </optgroup> 
+            </optgroup>
+        </select>
+        </p>
+
+        <p>
+            描述:
+            <textarea cols="20" rows="5" wrap="hard" id="story" placeholder="输入你想说的话" name="story">
+           
+        </textarea>
+        </p>
+
+        <p>
+            颜色：
+            <input type="color" id="color" name="color" />
+        </p>
+
+        <p>
+            日期：
+            <input type="date" id="date" name="date" /> 时间：
+            <input type="time" id="time" name="time" />
+        </p>
+    </form>
+</body>
+
+</html>

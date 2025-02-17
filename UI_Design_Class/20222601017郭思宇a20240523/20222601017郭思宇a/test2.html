@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="button" onclick="changeBGCR()"><h1>背景变red
+        <span id="spanr"></span>
+    </h1></button>
+
+    <button type="button" onclick="changeBGCB()"><h1>背景变blue
+        <span id="spanb"></span>
+    </h1></button>
+
+    <button type="button" onclick="changeBGCY()"><h1>背景变yellow
+        <span id="spany"></span>
+    </h1></button>
+</body>
+<script>
+    var spanr = document.getElementById('背景变red');
+
+    function changeBGCR() {
+        document.body.style.backgroundColor = 'red';
+    }
+
+    var spanb = document.getElementById('背景变blue');
+
+    function changeBGCB() {
+        document.body.style.backgroundColor = 'blue';
+    }
+
+    var spany = document.getElementById('背景变yellow');
+
+    function changeBGCY() {
+        document.body.style.backgroundColor = 'yellow';
+    }
+</script>
+
+</html>

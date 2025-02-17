@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>弹性登录页</title>
+    <style>
+        .ma {
+            margin-top: 200px;
+            margin-bottom: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            margin: 10px auto;
+            display: flex;
+            flex-wrap: wrap;
+            width: 400px;
+            height: auto;
+            margin: 0px;
+            background-size: 110%;
+            border: 3px solid rgb(156, 49, 37);
+            box-shadow: 3px 3px 3px 3px grey;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .c1ntainer {
+            margin: 10px auto;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+        }
+        
+        .c {
+            display: inline-flex;
+            width: 75px;
+            height: 75px;
+            background-color: aquamarine;
+            border-radius: 50%;
+            border: 2.5px solid pink;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .div_inner {
+            width: 30%;
+            height: 30%;
+            border-radius: 112px;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            border: 6px solid burlywood;
+            display: flex;
+            font-size: 100%;
+            justify-content: space-around;
+        }
+        
+        .div_inner:hover {
+            background-color: lightblue;
+            color: pink;
+        }
+        
+        .c:hover {
+            background-color: darkgray;
+            color: pink;
+        }
+    </style>
+</head>
+
+<body style="background-color: aliceblue;">
+    <div class="ma">
+        <div class="container">
+            <form action="test2.html" method="post">
+                <h3 style="text-align:center;justify-content: pace-around">请登录</h3>
+                <div style="align-items:center">
+                    <button class="c">1</button>
+                    <button class="c">2</button>
+                    <button class="c">3</button>
+                    <br>
+                    <h4 style="text-align: center;">-------or-------</h4>
+                </div>
+
+                <p>账号：<input type="text" placeholder="name" id="name" name="name" /></p>
+                <p>密码：<input type="password" placeholder="key" id="pwd" name="password" /> </p>
+                <p>协议同意：<input type="radio"></p>
+                <div class="c1ntainer">
+                    <button class="div_inner" type="submit">登录</button>
+                    <button class="div_inner" type="submit">注册</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九宫格</title>
+    <style>
+        .container {
+            margin: 10px auto;
+            display: flex;
+            flex-wrap: wrap;
+            width: 712px;
+            height: 712px;
+            margin: 0px;
+            background: url(./111.jpg);
+            background-size: 110%;
+            border: 3px solid rgb(156, 49, 37);
+            align-items: center;
+            justify-content: space-around;
+            flex-direction: row;
+        }
+        
+        .div_inner {
+            width: 30%;
+            height: 30%;
+            border-radius: 112px;
+            backdrop-filter: blur(5px);
+            border: 6px solid burlywood;
+            display: flex;
+            font-size: 600%;
+            align-items: center;
+            justify-content: space-around;
+        }
+        
+        .div_inner:hover {
+            backdrop-filter: blur(0px);
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="div_inner">1</div>
+        <div class="div_inner">2</div>
+        <div class="div_inner">3</div>
+        <div class="div_inner">4</div>
+        <div class="div_inner">5</div>
+        <div class="div_inner">6</div>
+        <div class="div_inner">7</div>
+        <div class="div_inner">8</div>
+        <div class="div_inner">9</div>
+    </div>
+</body>
+
+</html>

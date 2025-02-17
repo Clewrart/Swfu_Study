@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格</title>
+    <style>
+        table {
+            border: solid;
+            border-color: black;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        
+        td {
+            text-align: center;
+            width: 200px;
+            height: 30px;
+            border: 2px;
+            border: solid;
+            border-color: black;
+            font-size: 100%;
+        }
+        
+        th {
+            border: solid;
+            border-color: black;
+            border-collapse: collapse;
+            background-color: aquamarine;
+            width: 200px;
+            height: 30px;
+        }
+        
+        .shuang {
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>
+            <b><h1>车间能源消耗比例</h1></b>
+        </caption>
+
+        <tr>
+            <th>车间</th>
+            <th>产量</th>
+            <th>能耗</th>
+            <th>单耗</th>
+        </tr>
+
+        <tr>
+            <td rowspan="2">188</td>
+            <td>20</td>
+            <td>100</td>
+            <td>5</td>
+        </tr>
+
+        <tr class="shuang">
+
+            <td>20</td>
+            <td>100</td>
+            <td>5</td>
+        </tr>
+
+        <tr>
+            <td rowspan="2">189</td>
+            <td>20</td>
+            <td>100</td>
+            <td>5</td>
+        </tr>
+
+        <tr class="shuang">
+
+            <td>20</td>
+            <td>100</td>
+            <td>5</td>
+        </tr>
+
+        <tr>
+            <td colspan="2">签字</td>
+
+            <td colspan="2"></td>
+        </tr>
+    </table>
+</body>
+
+</html>

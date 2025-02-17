@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>课程表</title>
+    <style>
+        table {
+            border: solid;
+            border-color: black;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        
+        td {
+            text-align: center;
+            width: 200px;
+            height: 30px;
+            border: 2px;
+            border: solid;
+            border-color: black;
+            font-size: 100%;
+        }
+        
+        th {
+            border: solid;
+            border-color: black;
+            border-collapse: collapse;
+            background-color: aquamarine;
+            width: 200px;
+            height: 30px;
+        }
+        
+        .shuang {
+            background-color: blanchedalmond;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <caption>
+            <b><h1>课程表</h1></b>
+
+            <tr>
+                <th>num</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td rowspan="2">高等数学2</td>
+                <td rowspan="2">计算机组成原理</td>
+                <td rowspan="2"></td>
+                <td rowspan="2">高等数学2</td>
+                <td rowspan="2">大学英语2</td>
+
+            </tr>
+
+            <tr>
+
+                <td>2</td>
+
+            </tr>
+
+            <tr class="shuang">
+                <td>3</td>
+                <td rowspan="2">数据库原理</td>
+                <td rowspan="2">面向对象程序设计</td>
+                <td rowspan="2">数据结构</td>
+                <td rowspan="2"></td>
+                <td rowspan="2">《体育2》</td>
+            </tr>
+
+            <tr>
+
+                <td class="shuang">4</td>
+
+            </tr>
+
+            <tr>
+                <td>3</td>
+                <td rowspan="2">毛泽东思想</td>
+                <td rowspan="2">计算机组成原理</td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>4</td>
+
+            </tr>
+
+
+            <tr class="shuang">
+                <td>5</td>
+                <td rowspan="2">计算机图形学</td>
+                <td rowspan="2"></td>
+                <td rowspan="2">数据库原理</td>
+                <td rowspan="4">UI设计</td>
+                <td rowspan="4">数据结构</td>
+            </tr>
+            <tr>
+
+                <td class="shuang">6</td>
+
+            </tr>
+
+            <tr>
+                <td>7</td>
+                <td rowspan="2">计算机组成原理</td>
+                <td rowspan="2">线性代数A</td>
+                <td rowspan="2"></td>
+
+
+            </tr>
+
+            <tr>
+
+                <td>8</td>
+
+            </tr>
+
+
+            <tr class="shuang">
+                <td>9</td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+                <td rowspan="2">毛泽东思想</td>
+                <td rowspan="2">形势与政策</td>
+                <td rowspan="2"></td>
+            </tr>
+            <tr>
+
+                <td class="shuang">10</td>
+
+            </tr>
+            <tr>
+                <td>11</td>
+                <td rowspan="2">毛泽东思想</td>
+                <td rowspan="2">线性代数</td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+                <td rowspan="2"></td>
+
+            </tr>
+
+            <tr>
+
+                <td>12</td>
+
+            </tr>
+
+
+    </table>
+</body>
+
+</html>

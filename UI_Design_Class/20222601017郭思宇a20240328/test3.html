@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    li {
+        list-style: none;
+        padding: 0%;
+        background-color: blueviolet;
+    }
+    
+    table {
+        border: solid;
+        border-color: black;
+        border-collapse: collapse;
+        margin: auto;
+        background-color: aquamarine;
+    }
+    
+    td {
+        text-align: center;
+        width: 500px;
+        height: 30px;
+        border: 2px;
+        border: solid;
+        border-color: black;
+        font-size: 100%;
+    }
+    
+    .td2 {
+        display: none;
+    }
+    
+    .td1:hover {
+        color: black;
+        background-color: greenyellow;
+    }
+    
+    .td1:hover .td2 {
+        display: block;
+        background-color: lightblue;
+    }
+</style>
+
+
+<body>
+
+    <table>
+        <tr>
+            <td class="td1">Info
+                <table class="td2">
+                    <td>OS</td>
+                    <td>Public</td>
+                    <td>About</td>
+                </table>
+            </td>
+            <td class="td1">OS
+                <table class="td2">
+                    <td>OS</td>
+                    <td>Public</td>
+                    <td>About</td>
+                </table>
+            </td>
+            <td class="td1">Public
+                <table class="td2">
+                    <td>OS</td>
+                    <td>Public</td>
+                    <td>About</td>
+                </table>
+            </td>
+            <td class="td1">About
+                <table class="td2">
+                    <td>OS</td>
+                    <td>Public</td>
+                    <td>About</td>
+                </table>
+            </td>
+            <td><input placeholder="输入框"><button>GO!</button></td>
+        </tr>
+
+
+    </table>
+
+
+
+</body>
+
+</html>

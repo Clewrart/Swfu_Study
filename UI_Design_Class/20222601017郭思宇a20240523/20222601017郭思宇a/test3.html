@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="number" id="in1" placeholder="输入数字1">
+    <select id="ch1">
+        <option value="1">+</option>
+        <option value="2">-</option>
+        <option value="3">×</option>
+        <option value="4">÷</option>
+    </select>
+    <input type="number" id="in2" placeholder="输入数字2"> =
+    <input type="text" id="out" onclick="js()" placeholder="点击计算">
+</body>
+
+
+<script>
+    function js() {
+        a = parseFloat(document.getElementById("in1").value);
+        b = parseFloat(document.getElementById("in2").value);
+        var fa = document.getElementById("ch1");
+        var p = fa.selectedIndex;
+        var xu = fa.options[p].value;
+        c = parseFloat(document.getElementById("out").value);
+
+
+        var jia = (xu == "1");
+        var jian = (xu == "2");
+        var cheng = (xu == "3");
+        var chu = (xu == "4");
+
+        if (jia) {
+            document.getElementById("out").value = (a + b);
+
+        } else if (jian) {
+            document.getElementById("out").value = (a - b);
+
+        } else if (cheng) {
+            document.getElementById("out").value = (a * b);
+        } else if (chu) {
+            document.getElementById("out").value = (a / b);
+        } else {
+            alert("你没输入！");
+        }
+    }
+</script>
+
+</html>

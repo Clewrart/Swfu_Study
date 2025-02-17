@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高度自适应</title>
+
+    <style>
+        #container {
+            margin: 0px auto;
+            width: 230px;
+            padding: 10px;
+            background-color: #CCC;
+            overflow: hidden
+        }
+        
+        #box1 {
+            margin: 0;
+            width: 100px;
+            padding: 4px;
+            background-color: #F90;
+            float: inline-start;
+            /*自己加的*/
+        }
+        
+        #box2 {
+            margin: 0;
+            width: 100px;
+            background-color: #F90;
+            color: #FFFFFF;
+            float: right;
+            padding: 4px;
+        }
+        
+        #clear {
+            clear: both;
+            height: 0px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="container">
+        <div id="box1">box1</div>
+        <div id="box2">这里是box2,通过清除浮动方法来进行高度自适应布局
+            <div id="clear"></div>
+        </div>
+    </div>
+</body>
+
+</html>

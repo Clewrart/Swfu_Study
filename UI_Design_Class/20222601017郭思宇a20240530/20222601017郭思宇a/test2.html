@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Siyu Calculate</title>
+    <style>
+        .calculator {
+            width: 400px;
+            padding: 20px;
+            background-color: #6cf;
+            border-radius: 5px;
+            margin: 50px auto;
+            text-align: center;
+        }
+        
+        .display {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 5px;
+            font-size: 24px;
+            text-align: right;
+            background-color: #e0e0e0;
+            border-radius: 5px;
+        }
+        
+        .button {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+        
+        .buttonRes {
+            width: 150px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+            background-color: yellow;
+            color: red;
+            border-radius: 5px;
+        }
+        
+        .buttonFun {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+            background-color: green;
+            color: azure;
+            border-radius: 5px;
+        }
+        
+        .buttonFun2 {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+            background-color: brown;
+            color: azure;
+            border-radius: 5px;
+        }
+        
+        .buttonFundeng {
+            width: 150px;
+            height: 50px;
+            margin: 5px;
+            font-size: 20px;
+            background-color: pink;
+            color: azure;
+            border-radius: 5px;
+        }
+        
+        .button:hover {
+            background-color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="calculator">
+        <input type="text" class="display" readonly value="0" />
+        <div>
+            <button class="button" onclick="appendNumber('0')">0</button>
+            <button class="button" onclick="appendNumber('1')">1</button>
+            <button class="button" onclick="appendNumber('2')">2</button>
+            <button class="button" onclick="appendNumber('3')">3</button>
+            <button class="button" onclick="appendNumber('4')">4</button>
+        </div>
+
+        <div>
+            <button class="button" onclick="appendNumber('5')">5</button>
+            <button class="button" onclick="appendNumber('6')">6</button>
+            <button class="button" onclick="appendNumber('7')">7</button>
+            <button class="button" onclick="appendNumber('8')">8</button>
+            <button class="button" onclick="appendNumber('9')">9</button>
+        </div>
+
+        <div>
+            <button class="buttonFun2" onclick="appendNumber('.')">.</button>
+            <button class="buttonFun" onclick="setOP('+')">+</button>
+            <button class="buttonFun" onclick="setOP('-')">-</button>
+            <button class="buttonFun" onclick="setOP('*')">×</button>
+            <button class="buttonFun" onclick="setOP('/')">÷</button>
+        </div>
+        <div>
+            <button class="buttonRes" onclick="location.reload()">RESET</button>
+            <button class="buttonFundeng" onclick="getV()">=</button>
+        </div>
+    </div>
+
+    <script>
+        const display = document.querySelector('.display');
+
+        let value1 = null;
+        let op = null;
+        let getvalue2 = false;
+
+        function appendNumber(number) {
+            if (getvalue2) {
+                display.value = number;
+                getvalue2 = false;
+            } else {
+                display.value = display.value === '0' ? number : display.value + number;
+            }
+        }
+
+        function setOP(OPE) {
+            if (value1 === null) {
+                value1 = parseFloat(display.value);
+            } else if (op !== null) {
+                const value2 = parseFloat(display.value);
+                js(value1, value2, op);
+                display.value = value1;
+            }
+            op = OPE;
+            getvalue2 = true;
+            display.value = value1 + ' ' + op;
+        }
+
+        function getV() {
+            if (value1 !== null && op !== null && !getvalue2) {
+                const value2 = parseFloat(display.value);
+                js(value1, value2, op);
+                display.value = value1;
+                value1 = null;
+                op = null;
+                getvalue2 = false;
+            }
+        }
+
+        function js(a, b, op) {
+            switch (op) {
+                case '+':
+                    value1 = a + b;
+                    break;
+                case '-':
+                    value1 = a - b;
+                    break;
+                case '*':
+                    value1 = a * b;
+                    break;
+                case '/':
+                    value1 = a / b;
+                    if (b == 0) {
+                        alert("根据小学数学，除数不能为0 !");
+                        alert("点击“确认”重置！");
+                        location.reload();
+                    } else {
+                        value1 = a / b;
+                    }
+                    break;
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航栏2</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul {
+        list-style: none;
+        padding: 0%;
+    }
+    
+    li ul {
+        display: none;
+    }
+    
+    .ul2 {
+        list-style: none;
+        padding: 0%;
+    }
+    
+    u {
+        text-align: center;
+    }
+    
+    li {
+        background-color: beige;
+        display: inline-table;
+        width: 298px;
+        height: 60px;
+        font-size: 200%;
+        line-height: 60px;
+        text-align: center;
+        border-color: cadetblue;
+        border: 1px solid;
+    }
+    
+    li:hover {
+        color: black;
+        background-color: greenyellow;
+    }
+    
+    li:hover .ul2 {
+        display: block;
+    }
+    
+    .li1 {
+        background-color: beige;
+        float: left;
+        width: 100%;
+        height: 40px;
+        font-size: 60%;
+        line-height: 40px;
+        text-align: center;
+    }
+    
+    .li1:hover {
+        color: rgb(0, 122, 6);
+        background-color: #66ccff;
+    }
+    
+    input {
+        height: 30px;
+    }
+    
+    button {
+        height: 30px;
+    }
+</style>
+
+<body>
+    <u>
+    <ul>
+        <li>2-1
+            <ul class="ul2">
+                <li class="li1">2-1</li>
+                <li class="li1">2-2</li>
+                <li class="li1">2-3</li>
+            </ul>
+        </li>
+
+        <li>2-2
+            <ul class="ul2">
+                <li class="li1">2-1</li>
+                <li class="li1">2-2</li>
+                <li class="li1">2-3</li>
+            </ul>
+        </li>
+
+        <li>2-3
+            <ul class="ul2">
+                <li class="li1">2-1</li>
+                <li class="li1">2-2</li>
+                <li class="li1">2-3</li>
+            </ul>
+        </li>
+
+        <li>2-4
+            <ul class="ul2">
+                <li class="li1">2-1</li>
+                <li class="li1">2-2</li>
+                <li class="li1">2-3</li>
+            </ul>
+        </li>
+
+        <li class="li0"><input placeholder="输入框"><button>GO!</button></li>
+
+    </ul>
+</u>
+</body>
+
+</html>
