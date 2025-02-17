@@ -1,0 +1,53 @@
+# depslib dependency file v1.0
+1702904813 source:c:\project\cppratice\guessgame\dotcom.c
+	"dotcom.h"
+	<stdlib.h>
+	<time.h>
+
+1702904851 c:\project\cppratice\guessgame\dotcom.h
+
+1702905039 source:c:\project\cppratice\guessgame\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"dotcom.h"
+
+1702905039 source:c:\course\c语言程序设计\2023-2024-01\实习\实习02\guessgame\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"dotcom.h"
+
+1702904851 c:\course\c语言程序设计\2023-2024-01\实习\实习02\guessgame\dotcom.h
+
+1702942401 source:c:\course\c语言程序设计\2023-2024-01\实习\实习02\guessgame\dotcom.c
+	"dotcom.h"
+	<stdlib.h>
+	<time.h>
+
+1703061084 source:d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习02\实习02\guessgame\dotcom.c
+	"dotcom.h"
+	<stdlib.h>
+	<time.h>
+
+1702904850 d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习02\实习02\guessgame\dotcom.h
+
+1703086498 source:d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习02\实习02\guessgame\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"dotcom.h"
+
+1703061084 source:d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习02\guessgame\dotcom.c
+	"dotcom.h"
+	<stdlib.h>
+	<time.h>
+
+1702904850 d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习02\guessgame\dotcom.h
+
+1703086498 source:d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习02\guessgame\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"dotcom.h"
+

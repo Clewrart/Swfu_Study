@@ -1,0 +1,50 @@
+# depslib dependency file v1.0
+1702819407 source:c:\project\cppratice\expdemo03\main.c
+	<stdio.h>
+	<stdlib.h>
+	"node.h"
+
+1702815267 source:c:\project\cppratice\expdemo03\node.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"node.h"
+
+1702814617 c:\project\cppratice\expdemo03\node.h
+
+1702815267 source:c:\course\c语言程序设计\2023-2024-01\实习\实习01\expdemo03\node.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"node.h"
+
+1702814617 c:\course\c语言程序设计\2023-2024-01\实习\实习01\expdemo03\node.h
+
+1702907767 source:d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习01\实习01\expdemo03\main.c
+	<stdio.h>
+	<stdlib.h>
+	"node.h"
+
+1702814616 d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习01\实习01\expdemo03\node.h
+
+1702815266 source:d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习01\实习01\expdemo03\node.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"node.h"
+
+1703867560 source:d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习01\expdemo03\main.c
+	<stdio.h>
+	<stdlib.h>
+	"node.h"
+	<stdio.h>
+	<stdlib.h>
+
+1703123634 d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习01\expdemo03\node.h
+
+1703123634 source:d:\01 本科资料\2023-2024-01-c语言-赵毅力\实习01\expdemo03\node.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	"node.h"
+

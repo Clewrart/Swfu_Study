@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1702812263 source:c:\project\cp2023\expdemo01\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
+1702887057 source:d:\01 本科资料\sx01\实习01\expdemo01\main.c
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+
