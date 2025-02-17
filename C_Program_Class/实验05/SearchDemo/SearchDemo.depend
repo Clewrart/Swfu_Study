@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1696820581 source:c:\project\cp2023\searchdemo\main.c
+	<stdio.h>
+	<stdlib.h>
+

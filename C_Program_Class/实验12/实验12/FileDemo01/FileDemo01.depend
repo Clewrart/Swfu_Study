@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1701582130 source:d:\01本科资料\2023-2024-01-c语言-赵毅力\实验12\实验12\filedemo01\main.c
+	<stdio.h>
+	<stdlib.h>
+

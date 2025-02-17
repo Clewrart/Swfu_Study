@@ -1,0 +1,3 @@
+The task of semantic segmentation is to label all pixels within an image as belonging to one of N classes. There is a
+trade off in this task in that certain types of predictions are best handled at lower inference resolution and other tasks
+better handled at higher inference resolution.
