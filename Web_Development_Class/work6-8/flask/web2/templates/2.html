@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}">
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#btn1").click(function() {
+                var p1 = $("#p1").val();
+                var p2 = $("#p2").val();
+                var rs = JSON.stringify({
+                    p1: p1,
+                    p2: p2
+                });
+                $.ajax({
+                    url: "/calCu",
+                    type: "post",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: rs,
+                    success: function(data) {
+                        alert("计算结果：" + data.p3)
+                    },
+                    error: function(err) {
+                        alert("Error!")
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <input type="number" id="p1">
+    <input type="number" id="p2">
+    <input type="button" id="btn1" value="加法计算">
+    <h3>点击按钮计算</h3>
+</body>
+
+</html>

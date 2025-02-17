@@ -1,0 +1,41 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\N01_CSTRecourse\\m02_class2024_2025_01\\Web_Development\\Lab\\work6-8\\Web8-3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BC105AC1-C2AD-4B60-B94D-1F70704A734B}|Web8-3.csproj|d:\\n01_cstrecourse\\m02_class2024_2025_01\\web_development\\lab\\work6-8\\web8-3\\web3.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{BC105AC1-C2AD-4B60-B94D-1F70704A734B}|Web8-3.csproj|solutionrelative:web3.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "web3.html",
+              "DocumentMoniker": "D:\\N01_CSTRecourse\\m02_class2024_2025_01\\Web_Development\\Lab\\work6-8\\Web8-3\\web3.html",
+              "RelativeDocumentMoniker": "web3.html",
+              "ToolTip": "D:\\N01_CSTRecourse\\m02_class2024_2025_01\\Web_Development\\Lab\\work6-8\\Web8-3\\web3.html",
+              "RelativeToolTip": "web3.html",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-15T10:38:57.815Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

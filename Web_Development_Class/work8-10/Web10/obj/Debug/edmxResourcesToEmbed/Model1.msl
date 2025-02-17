@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="webModelStoreContainer" CdmEntityContainer="webEntities1">
+    <EntitySetMapping Name="studinfo">
+      <EntityTypeMapping TypeName="webModel.studinfo">
+        <MappingFragment StoreEntitySet="studinfo">
+          <ScalarProperty Name="studno" ColumnName="studno" />
+          <ScalarProperty Name="studname" ColumnName="studname" />
+          <ScalarProperty Name="studsex" ColumnName="studsex" />
+          <ScalarProperty Name="email" ColumnName="email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userinfo">
+      <EntityTypeMapping TypeName="webModel.userinfo">
+        <MappingFragment StoreEntitySet="userinfo">
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="role" ColumnName="role" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

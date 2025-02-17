@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20222601017 郭思宇</title>
+    <script src="jquery-3.7.1.js"></script>
+</head>
+<body>
+    <h1>查询</h1>
+    <input type="text" placeholder="输入学生姓名" id="infoq">
+    <input type="button" value="查询" id="que">
+    <div id="studentInfo"></div>
+    <div id="studentInfo2"></div>
+
+    <h2>新增学生</h2>
+    <input type="text" placeholder="学号" id="newStudno">
+    <input type="text" placeholder="姓名" id="newStudname">
+    <input type="text" placeholder="性别" id="newStudsex">
+    <input type="text" placeholder="邮箱" id="newEmail">
+    <input type="button" value="增加学生" id="addStudent">
+
+    <script>
+        $(document).ready(function () {
+            $("#que").click(function () {
+                var no = $('#infoq').val();
+                if (no.length === 0) {
+                    $("#studentInfo2").html("*查询不能为空").css("color", "orange");
+                    return;
+                }
+                loadStudents(no);
+            });
+
+            $("#addStudent").click(function () {
+                var studno = $('#newStudno').val();
+                var name = $('#newStudname').val();
+                var sex = $('#newStudsex').val();
+                var email = $('#newEmail').val();
+
+                if (studno && name && sex && email) {
+                    addStudent(studno, name, sex, email);
+                } else {
+                    alert("必须填写信息！！");
+                }
+            });
+
+            function loadStudents(no) {
+                $.ajax({
+                    url: "WebForm1.aspx/que",
+                    type: "post",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify({ no: no }),
+                    success: function (data) {
+                        var parsedData = JSON.parse(data.d);
+                        var infoDiv = $('#studentInfo').empty();
+                        $('#studentInfo2').empty();
+                        if (parsedData.length > 0) {
+                            var htmlContent = '<table style="border: 1px solid black; border-collapse: collapse;">' +
+                                '<tr><th>学号</th><th>姓名</th><th>性别</th><th>邮箱</th><th>操作</th></tr>';
+                            parsedData.forEach(function (student) {
+                                htmlContent += '<tr>' +
+                                    '<td>' + student.Studno + '</td>' +
+                                    '<td>' + student.Studname + '</td>' +
+                                    '<td>' + student.Studsex + '</td>' +
+                                    '<td>' + student.Email + '</td>' +
+                                    '<td><button class="del" data-id="' + student.Studno + '">删除</button>' +
+                                    '<button class="edit" data-id="' + student.Studno + '" data-name="' + student.Studname +
+                                    '" data-sex="' + student.Studsex + '" data-email="' + student.Email + '">编辑</button></td>' +
+                                    '</tr>';
+                            });
+                            htmlContent += '</table>';
+                            infoDiv.html(htmlContent);
+                        } else {
+                            $("#studentInfo2").html("*无匹配结果").css("color", "red");
+                        }
+                    },
+                    error: function (err) {
+                        alert("系统Error!");
+                    }
+                });
+            }
+
+            function addStudent(studno, name, sex, email, isEdit = false) {
+                $.ajax({
+                    url: isEdit ? "WebForm1.aspx/editStudent" : "WebForm1.aspx/addStudent",
+                    type: "post",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify({ no: studno, name: name, sex: sex, email: email }),
+                    success: function () {
+                        loadStudents($('#infoq').val());
+                        $('#newStudno, #newStudname, #newStudsex, #newEmail').val('');
+                        $('#addStudent').val('增加学生').off('click').on('click', function () {
+                           
+                        });
+                    },
+                    error: function (err) {
+                        alert("系统Error!");
+                    }
+                });
+            }
+
+
+            $(document).on('click', '.del', function () {
+                var studno = $(this).data('id');
+                $.ajax({
+                    url: "WebForm1.aspx/deleteStudent",
+                    type: "post",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify({ no: studno }),
+                    success: function () {
+                        loadStudents($('#infoq').val());
+                    },
+                    error: function (err) {
+                        alert("系统Error!");
+                    }
+                });
+            });
+
+            $(document).on('click', '.edit', function () {
+                var studno = $(this).data('id');
+                var currentName = $(this).data('name');
+                var currentSex = $(this).data('sex');
+                var currentEmail = $(this).data('email');
+
+                $('#newStudno').val(studno);
+                $('#newStudname').val(currentName);
+                $('#newStudsex').val(currentSex);
+                $('#newEmail').val(currentEmail);
+
+                $('#addStudent').val('保存').off('click').on('click', function () {
+                    addStudent(studno, $('#newStudname').val(), $('#newStudsex').val(), $('#newEmail').val(), true);
+                });
+            });
+
+
+        });
+    </script>
+    <footer><div><h2>郭思宇20222601017  Mysql+C#</h2></div></footer>
+    
+</body>
+</html>

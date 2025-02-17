@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#submit").click(function() {
+                var name = $('#userName').val();
+                var psw = $("#psw").val();
+                var jsonName = "{'userName':'" + name + "','password':'" + psw + "'}"
+                if (name.length == 0 || psw.length == 0) {
+                    $("#errorInfo").html("*用户名和密码不能为空").css("color", "orange");
+                    return;
+                }
+
+                $.ajax({
+                    url: "WebForm1.aspx/CHusr",
+                    type: "post",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: jsonName,
+                    success: function(data) {
+                        if (data.d == "1") {
+                            window.location.href = "wel.html";
+                        } else if (data.d == "0") {
+                            $("#errorInfo").html("*用户账户或密码错误").css("color", "red");
+                        }
+                    },
+                    error: function(err) {
+                        alert("系统Error!")
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>输入账号<input type="text" id="userName" placeholder="input"> </div><br>
+    <div>输入密码<input type="password" id="psw" placeholder="input"> </div><br>
+    <div>
+        <input type="button" id="submit" value="Login">
+    </div><br>
+    <div id="errorInfo"></div>
+</body>
+
+</html>

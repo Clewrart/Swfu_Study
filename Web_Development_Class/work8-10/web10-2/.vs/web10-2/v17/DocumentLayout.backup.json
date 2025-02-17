@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\N01_CSTRecourse\\m02_class2024_2025_01\\Web_Development\\Lab\\work8-10\\web10-2\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{24C88474-94A5-491D-81FA-F04D39577489}|web10-2.csproj|D:\\N01_CSTRecourse\\m02_class2024_2025_01\\Web_Development\\Lab\\work8-10\\web10-2\\info.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{24C88474-94A5-491D-81FA-F04D39577489}|web10-2.csproj|solutionrelative:info.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{24C88474-94A5-491D-81FA-F04D39577489}|web10-2.csproj|d:\\n01_cstrecourse\\m02_class2024_2025_01\\web_development\\lab\\work8-10\\web10-2\\webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{24C88474-94A5-491D-81FA-F04D39577489}|web10-2.csproj|solutionrelative:webform1.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WebForm1.aspx.cs",
+              "DocumentMoniker": "D:\\N01_CSTRecourse\\m02_class2024_2025_01\\Web_Development\\Lab\\work8-10\\web10-2\\WebForm1.aspx.cs",
+              "RelativeDocumentMoniker": "WebForm1.aspx.cs",
+              "ToolTip": "D:\\N01_CSTRecourse\\m02_class2024_2025_01\\Web_Development\\Lab\\work8-10\\web10-2\\WebForm1.aspx.cs",
+              "RelativeToolTip": "WebForm1.aspx.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAGgAAAAbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-23T06:38:50.775Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "info.html",
+              "DocumentMoniker": "D:\\N01_CSTRecourse\\m02_class2024_2025_01\\Web_Development\\Lab\\work8-10\\web10-2\\info.html",
+              "RelativeDocumentMoniker": "info.html",
+              "ToolTip": "D:\\N01_CSTRecourse\\m02_class2024_2025_01\\Web_Development\\Lab\\work8-10\\web10-2\\info.html",
+              "RelativeToolTip": "info.html",
+              "ViewState": "AgIAACoAAAAAAAAAAADwvzkAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-23T06:38:47.88Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

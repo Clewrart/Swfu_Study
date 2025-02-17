@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery-3.7.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#userName").focus(function () {
+                $(this).val("");
+            }).blur(function () {
+                var name = $(this).val();
+                var jsonName = "{'userName':'" + name + "'}";
+
+                if (name.length == 0) {
+                    $(".errorInfo").html("*用户名不能为空").css("color", "orange");
+                    return;
+                }
+                $.ajax({
+                    url: "WebForm1.aspx/check",
+                    type: "post",
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: jsonName,
+                    success: function (data) {
+                        if (data.d == "1") {
+                            $(".errorInfo").html("*该用户存在！").css("color", "Green");
+                        } else {
+                            $(".errorInfo").html("*该用户不存在").css("color", "Red");
+                        }
+                    },
+                    error: function (err) {
+                        alert("系统Error!")
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div>输入账号<input type="text" id="userName" placeholder="input"> </div><br>
+    <div class="errorInfo"></div>
+</body>
+
+</html>
