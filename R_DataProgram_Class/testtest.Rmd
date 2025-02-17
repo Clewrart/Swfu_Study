@@ -1,0 +1,180 @@
+---
+title: "2023年秋季R语言统计编程（初级）公选课测试题"
+author: "guanzhenhua"
+date: "2023-10-18"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+请用Rstudio编写代码，完成各任务。结果正确且规范者满分。
+
+成绩文件为stdscr.csv文件。
+
+同学姓名为 c("陈洁","王强","李磊","赵敏","张三","李四","王五","赵六","郑七","周八","吴九","蒋十","杨博","张峰","刘涛","陈明","李华","周伟","郑强","王刚","张磊","杨涛","陈丽","赵强","刘博","孙峰","周涛","吴明","李华","蒋刚","沈磊","杨丽","王强","陈明","周伟","张刚","郑磊","刘涛","孙丽","李强","赵明","钱伟","吴刚","杨磊","沈丽","宋强","马明","王伟","冯刚","陈磊","黄涛","梁丽","高强","夏明","董伟","范刚","郭磊","林涛","何丽","钱强","严明","苏伟","张刚","赵磊","石涛","武丽","贾强","唐明")
+
+
+**任务1**(10分):导入成绩文件stdscr.csv数据(read.csv)。
+
+```{r echo=TRUE}
+
+sc <- read.csv("stdscr.csv")
+head(sc)
+
+```
+
+
+**任务2**(10分):加入姓名变量到数据表中(<-，"$")。 
+
+```{r}
+nm <- c("陈洁","王强","李磊","赵敏","张三","李四","王五","赵六","郑七","周八","吴九","蒋十","杨博","张峰","刘涛","陈明","李华","周伟","郑强","王刚","张磊","杨涛","陈丽","赵强","刘博","孙峰","周涛","吴明","李华","蒋刚","沈磊","杨丽","王强","陈明","周伟","张刚","郑磊","刘涛","孙丽","李强","赵明","钱伟","吴刚","杨磊","沈丽","宋强","马明","王伟","冯刚","陈磊","黄涛","梁丽","高强","夏明","董伟","范刚","郭磊","林涛","何丽","钱强","严明","苏伟","张刚","赵磊","石涛","武丽","贾强","唐明")
+sc$name <- nm
+
+```
+
+
+**任务3**(10分):修改不合理分数(ifelse)。
+
+```{r}
+
+xiugai <- function(x) {
+  if (x > 1000) {
+    x <- x / 100
+  } else if (x > 200) {
+    x <- x / 10
+  } else if (x > 100) {
+    x <- x - 10
+  } else{
+    x <- x
+  }
+}
+
+for (i in 2:6) {
+  sc[, i] <- sapply(sc[, i], xiugai)
+}
+
+head(sc)
+
+```
+
+**任务4**(10分):计算均值和标准差(mean, sd)。
+
+```{r}
+
+mean(sc$math)
+data.frame(
+  avg = apply(sc[,2:6], 2, mean),
+  sd = apply(sc[,2:6], 2, sd))
+
+```
+
+
+
+**任务5**(10分):绘制数学成绩直方图(hist)，绘制英语成绩分布箱线图(boxplot)。
+
+
+```{r}
+hist(sc$math, xlim = c(-20, 120), col = "#ABCDEF")
+hist(sc$engl, xlim = c(-20, 120), 
+     col = "#FFFFFF", add =TRUE)
+
+library(ggplot2)
+ggplot(data = sc) +
+  geom_histogram( aes(math), fill = "red") +
+  geom_histogram( aes(engl), fill = "blue", alpha = .3) +
+  theme_bw()
+
+boxplot(sc$engl)
+
+ggplot(data = sc) +
+  geom_boxplot(aes(y = engl ))
+  
+ggsave("我刚才画的那个.jpg", dpi = 600, 
+       height = 10, width = 10, units = "cm")
+
+anotherplot <- ggplot(data = sc) +
+  geom_histogram( aes(biol), fill = "red") +
+  geom_histogram( aes(engl), fill = "blue", alpha = .3) +
+  theme_bw()
+  
+ggsave("我又画的那个.jpg", plot = anotherplot,
+       dpi = 600, 
+       height = 10, width = 10, units = "cm")
+
+dev.off()
+plot.new()
+
+
+```
+
+**任务6**(10分):计算每个同学总成绩(sum)。
+
+```{r}
+apply(sc[,2:6], 1, sum)
+```
+
+
+**任务7**(10分):绘制同学各科成绩折线图(ggplot)。
+
+```{r message=FALSE, warning=FALSE}
+
+plot(x =1:length(sc$math),
+     y = sc$math, type = "l", col = "#ABCDEF")
+lines(x =1:length(sc$engl),
+     y = sc$engl, col = "#BBBBBB", add = TRUE)
+lines(x =1:length(sc$biol),
+     y = sc$biol, col = "#627908", add = TRUE)
+
+ggplot(data = sc) +
+  geom_line(aes(x = X, y = math), 
+            col = "#ABCDEF") +
+  geom_line(aes(x = X, y = engl), 
+            col = "#BBBBBB") +
+  geom_line(aes(x = X, y = biol),
+            col = "#627908")
+
+
+transp_sc <- data.frame(t(sc[,2:6]))
+names(transp_sc)
+transp_sc$coursera <- row.names(transp_sc)
+transp_sc
+
+ggplot(data = transp_sc) +
+  geom_line(aes(x = coursera, y = X1), 
+            group = 1) +
+  geom_line(aes(x = coursera, y = X2), 
+            col = "red", group = 1)
+
+
+library(reshape2)
+ggplot(melt(transp_sc, id.vars = "coursera")) +
+  geom_line(aes( x=coursera, y = value, group = variable, col = variable)) +
+  theme(legend.position = "none")
+
+head(transp_sc)
+plot(x = 1:5, y = transp_sc$X1,
+       type = "l")
+for (i in 1:68){
+  lines(x =1:5,
+     y = transp_sc[,i],
+     col = "#BBBBBB", add = TRUE)
+}
+
+
+```
+
+**任务8**(10分):导出数据(write.csv)。  
+
+```{r}
+write.csv(sc, file = "输出的成绩单.csv",
+          fileEncoding = "UTF8")
+```
+
+**任务9**(10分):生成HTML报告(rmarkdown)。
+
+
+
+**任务10**(10分):谈论一下这门课程的学习收获。
+

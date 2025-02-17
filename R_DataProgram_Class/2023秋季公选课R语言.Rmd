@@ -1,0 +1,97 @@
+---
+title: "2023秋季公选课测试"
+author: "李华202200010001"
+date: "2023-10-16"
+output: html_document
+---
+
+### 任务1(10分)
+
+**导入CSV文件数据(read.csv)**
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+d <- read.csv("20230925stdscr.csv")
+head(d, 5)
+```
+
+
+### 任务2(10分)
+
+**加入姓名变量到数据表中(<-，"$")**
+
+
+
+
+## 解决三门问题
+
+刚才我说了规则
+
+
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+
+three_doors <- function(not_change) {
+  # step1 设置3个门
+  
+  door <- c("a", "b", "c")
+  
+  # step2 在3个门后随机放置奖励
+  
+  prize <- sample(door, 1)
+  prize
+  
+  # step3 第一次选择
+  
+  gamer <- sample(door, 1)
+  
+  # step4 主持打开没有奖励的门
+  
+  remove_door <- sample(door[prize != door], 1)
+  
+  after_remove <- door[remove_door != door]
+  
+  after_remove
+  
+  # step5 询问是否更改选择
+  
+  if (not_change) {
+    final_choose <- gamer
+  } else{
+    final_choose <- after_remove[gamer != after_remove]
+    
+  }
+  
+  # step6 主持人打开选择的门,确定是否获得奖励
+  
+  prize == final_choose
+}
+
+recd <- numeric(1e4)
+
+for(i in 1:length(recd)){
+  recd[i] <- three_doors(TRUE)
+}
+
+
+prob <- mean(recd)
+
+
+```
+
+通过计算，我们可以知道，三门问题时，更换选择的获奖概率为`r prob`，不更换选择时，获奖的概率为`r 1 - prob`。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
