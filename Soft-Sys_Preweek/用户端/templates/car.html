@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>车辆管理</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/order.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/font-awesome-4.7.0/css/font-awesome.css')}}">
+    <script type="text/javascript" src="{{url_for('static',filename='js/jquery-3.7.1.js')}}"></script>
+    <style>
+        button {
+            padding: 3px;
+        }
+        
+        #information {
+            text-align: left;
+        }
+        
+        .add_car {
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".detail").click(function() {
+                // 获取点击按钮的父元素 .item
+                var item = $(this).closest('.item');
+
+                // 找到父元素 .item 内的 .theDetail，并显示
+                item.find('.theDetail').show();
+            });
+            // 点击关闭按钮隐藏模态框
+            $(".close").click(function() {
+                $(".theDetail").hide();
+            });
+
+            // 点击模态框外部区域隐藏模态框
+            $(window).click(function(event) {
+                if ($(event.target).is(".theDetail")) {
+                    $(".theDetail").hide();
+                }
+            });
+
+            $(".add_car").click(function() {
+                $('.addDetail').show();
+            });
+            // 点击关闭按钮隐藏模态框
+            $(".close").click(function() {
+                $(".addDetail").hide();
+            });
+
+            // 点击模态框外部区域隐藏模态框
+            $(window).click(function(event) {
+                if ($(event.target).is(".addDetail")) {
+                    $(".addDetail").hide();
+                }
+            });
+
+            $(".delete_car").click(function() {
+                var car_id = $(this).closest('.item').find(".car_id").html();
+                $.ajax({
+                    type: "POST",
+                    url: "/delete_car/",
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        "car_id": car_id
+                    }),
+                    success: function(data) {
+                        alert("删除成功");
+                        window.location.reload();
+                    },
+                    error: function(err) {
+                        alert("error");
+                    }
+                })
+            })
+
+            $(".add_submit").click(function() {
+                var userid = $(".userid").html();
+                var carnum = $(".first_carnum").val() + "·" + $(".second_carnum").val();
+                var cartype = $(".cartype").val();
+                // 正则表达式：检查车牌号格式
+                var regex = /^[\u4e00-\u9fa5]{1}[A-Z]{1}[A-Z0-9]{5,6}$/;
+
+                // 验证车牌号是否符合格式
+                if (!regex.test($(".first_carnum").val() + $(".second_carnum").val())) {
+                    alert("车牌号格式不正确，请重新输入！");
+                } else {
+                    $.ajax({
+                        type: "POST",
+                        url: "/add_car/",
+                        contentType: "application/json;charset=UTF-8",
+                        dataType: 'json',
+                        data: JSON.stringify({
+                            "userid": userid,
+                            "carnum": carnum,
+                            "cartype": cartype,
+                        }),
+                        success: function(data) {
+                            if (data['code'] == "False") {
+                                alert("该车牌号已存在！");
+                            } else {
+                                window.location.reload();
+                            }
+
+                        },
+                        error: function(err) {
+                            alert("error");
+                        }
+                    })
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <p class="userid" style="display: none;">{{ id }}</p>
+    <!-- 详情界面, 默认不显示 -->
+    <div class="modal addDetail" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>增加车辆</h2><br>
+            <div id="information">
+                <p>
+                    车牌号：
+                    <input type="text" class="first_carnum" style="width: 50px;height: 30px;text-align: center; background-color: rgb(239, 239, 239); border: none;" placeholder="豫A"> ·
+                    <input type="text" class="second_carnum" style="width: 130px;height: 30px;text-align: center; background-color: rgb(239, 239, 239); border: none;" placeholder="66666">
+                </p><br>
+                <p>颜色：
+                    <select name="cartype" class="cartype" style="width: 200px;height: 30px;text-align: center; background-color: rgb(239, 239, 239); margin-left: 12px; border: none;">
+                        <option value="yellow" selected>黄色</option>
+                        <option value="black">黑色</option>
+                        <option value="red">红色</option>
+                        <option value="blue">蓝色</option>
+                        <option value="white">白色</option>
+                        <option value="brown">棕色</option>
+                    </select></p><br>
+                <button class="add_submit">提交</button>
+            </div>
+        </div>
+    </div>
+    <section class="aui-flexView">
+        <header class="aui-navBar aui-navBar-fixed"><a href="{{ url_for('index') }}" class="aui-navBar-item"><i class="icon icon-return"></i></a>
+            <div class="aui-center"><span class="aui-center-title">智能车辆车位信息系统</span></div><a href="javascript:;" class="aui-navBar-item"><i class="icon icon-sys"></i></a></header>
+        <section class="aui-scrollView">
+            <div class="aui-flex b-line">
+                <div class="aui-flex-box">
+                    <h2>车辆管理<button class="add_car">增加车辆</button></h2>
+                </div>
+                <div class="aui-arrow"><span></span></div>
+            </div>
+            <div class="aui-car-list">
+                {% for car in cars %}
+                <a href="javascript:;" class="aui-flex b-line item">
+                    <div class="aui-car-img">
+                        <img src="../static/images/{{ car['cartype'] }}.png" alt=""></div>
+                    <div class="aui-flex-box">
+                        <h1>{{ car['carnum'] }}</h1>
+                        <p class="car_id" style="display: none;">{{ car['id'] }}</p>
+                        <h2><button class="detail">车辆详情</button>&nbsp;&nbsp;&nbsp;<button class="delete_car">删除车辆</button></h2>
+                    </div>
+                    <!-- 详情界面, 默认不显示 -->
+                    <div class="modal theDetail" style="display: none;">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>车辆详情</h2><br>
+                            <div id="information">
+                                <p>车牌号：{{ car['carnum'] }}</p>
+                                <p>颜色： {% if car['cartype'] == 'black' %} 黑色 {% elif car['cartype'] == 'white' %} 白色 {% elif car['cartype'] == 'red' %} 红色 {% elif car['cartype'] == 'blue' %} 蓝色 {% elif car['cartype'] == 'yellow' %} 黄色 {% elif car['cartype']
+                                    == 'brown' %} 棕色 {% endif %}
+                                </p>
+                                {% if car['status'] == 0 %}
+                                <p>状态：无操作</p>
+                                {% elif car['status'] == 1 %}
+                                <p>状态：车位内</p>
+                                {% elif car['status'] == 2 %}
+                                <p>状态：已预约</p>
+                                {% elif car['status'] == 3 %}
+                                <p>状态：<span style="color: red;">停车时间异常</span></p>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </section>
+    </section>
+</body>
+
+</html>

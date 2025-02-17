@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>预约记录</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/order.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/font-awesome-4.7.0/css/font-awesome.css')}}">
+    <script type="text/javascript" src="{{url_for('static',filename='js/jquery-3.7.1.js')}}"></script>
+    <style>
+        button {
+            padding: 3px;
+        }
+        
+        #information {
+            text-align: left;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".detail").click(function() {
+                // 获取点击按钮的父元素 .item
+                var item = $(this).closest('.item');
+
+                // 找到父元素 .item 内的 .theDetail，并显示
+                item.find('.theDetail').show();
+            });
+            // 点击关闭按钮隐藏模态框
+            $(".close").click(function() {
+                $(".theDetail").hide();
+            });
+
+            // 点击模态框外部区域隐藏模态框
+            $(window).click(function(event) {
+                if ($(event.target).is(".theDetail")) {
+                    $(".theDetail").hide();
+                }
+            });
+
+            $(".cancel_order").click(function() {
+                var item = $(this).closest('.item');
+                var reserve_id = item.find('.reserve_id').html();
+                var location_id = item.find('.location_id').html();
+                var car_id = item.find('.car_id').html();
+                $.ajax({
+                    type: "POST",
+                    url: "/cancel_order/",
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        "reserve_id": reserve_id,
+                        "location_id": location_id,
+                        "car_id": car_id
+                    }),
+                    success: function(data) {
+                        if (data['code'] == "True") {
+                            alert("取消成功");
+                            location.reload();
+                        } else {
+                            alert("取消失败");
+                        }
+                    },
+                    error: function(err) {
+                        alert("error");
+                    }
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <section class="aui-flexView">
+        <header class="aui-navBar aui-navBar-fixed"><a href="{{ url_for('index') }}" class="aui-navBar-item"><i class="icon icon-return"></i></a>
+            <div class="aui-center"><span class="aui-center-title" style="font-size: 30px;">智能车辆车位信息系统</span></div><a href="javascript:;" class="aui-navBar-item"><i class="icon icon-sys"></i></a></header>
+        <section class="aui-scrollView">
+            <div class="aui-flex b-line">
+                <div class="aui-flex-box">
+                    <h2>预约记录</h2>
+                </div>
+                <div class="aui-arrow"><span></span></div>
+            </div>
+            <div class="aui-car-list">
+                {% for car in cars %}
+                <a href="javascript:;" class="aui-flex b-line item">
+                    <div class="aui-car-img">
+                        <img src="../static/images/{{ car['carinfo']['cartype'] }}.png" alt=""></div>
+                    <div class="aui-flex-box">
+                        <h1>{{ car['carinfo']['carnum'] }}</h1>
+                        {% if car['status'] == 1 %}
+                        <h2>预约中&nbsp;&nbsp;&nbsp;<button class="detail">预约详情</button></h2>
+                        {% elif car['status'] == 0 %}
+                        <h2>预约失效&nbsp;&nbsp;&nbsp;<button class="detail">预约详情</button></h2>
+                        {% endif %}
+                    </div>
+                    <!-- 详情界面, 默认不显示 -->
+                    <div class="modal theDetail" style="display: none;">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h2>预约详情</h2><br>
+                            <div id="information">
+                                <p class="reserve_id" style="display: none;">{{ car['id'] }}</p>
+                                <p class="location_id" style="display: none;">{{ car['locationinfo']['id'] }}</p>
+                                <p class="car_id" style="display: none;">{{ car['carinfo']['id'] }}</p>
+                                <p>车牌号：<span class="carnum">{{ car['carinfo']['carnum'] }}</span></p>
+                                <p>车位：<span>{{ car['locationinfo']['address'] }}</span></p>
+                                <p>预约时间：<span>{{ car['expire_time'] }}</span></p>
+                                {% if car['status'] == 1 %}
+                                <p>预约状态：预约中</p><br>
+                                <button class="cancel_order">取消预约</button> {% elif car['status'] == 0 %}
+                                <p>预约状态：预约失效</p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                {% endfor %}
+            </div>
+        </section>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,309 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>智慧车位</title>
+    <!-- <script src="../public/js/jquery.js"></script>
+    <link rel="stylesheet" href="../public/css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="../public/css/bootstrap.css" rel="stylesheet">
+    <link href="../public/css/style-responsive.css" rel="stylesheet">
+    <link href="../public/css/default-theme.css" rel="stylesheet">
+    <link href="../public/css/style.css" rel="stylesheet">
+    <link href="../public/css/bootstrap-reset.css" rel="stylesheet"> -->
+    <link rel="stylesheet"
+        href="{{ url_for('static', filename='css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style-responsive.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/default-theme.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-reset.css') }}">
+</head>
+
+<body class="sticky-header">
+    <section>
+        <div class="sidebar-left">
+            <div class="sidebar-left-info">
+                <div class=" search-field"> </div>
+                <ul class="nav nav-pills nav-stacked side-navigation">
+                    <li class="menu-list"> <a href="/" id="car_manage"><i class="fa fa-drivers-license"></i>
+                            <span>车辆管理</span></a>
+                    </li>
+
+                    <li class="menu-list "><a href="/location" id="location_manage"><i class="fa fa-car"></i>
+                            <span>车位管理</span></a>
+                    </li>
+                    <li class="  nav-active"><a href="/reserve" id="yu"><i class="fa fa-desktop"></i>
+                            <span>预约管理</span></a>
+                    </li>
+                    <li class="menu-list"><a href="/data"  id="data_manage"><i class="fa fa-pie-chart"></i> <span>数据管理</span></a>
+
+                    </li>
+                    <li class="menu-list"><a href="" id="user_manage"><i class="fa fa-users"></i> <span>用户管理</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="body-content">
+            <div class="header-section">
+                <div class="logo dark-logo-bg"> <a href="/"> <img src="img/logo-icon.png" alt="">
+                        <span class="brand-name" style="font-size: 15px; font-weight: bold;">智慧车位</span> </a> </div>
+                <div class="icon-logo dark-logo-bg hidden-xs hidden-sm"> <a href="/"><img
+                            src="img/logo-icon.png" alt=""> </a> </div>
+                <a class="toggle-btn"><i class="fa fa-outdent"></i></a>
+                
+                <div class="notification-wrap">
+                    <div class="right-notification">
+                        <ul class="notification-menu">
+                            <li> <a href="javascript:;" class="btn btn-default  dropdown-toggle" id="welcome"> <i
+                                        class="fa  fa-cogs"></i> </a> </li>
+                            <li> <a href="javascript:;" class="btn btn-default  dropdown-toggle" id="logout"> <i
+                                        class="fa fa-sign-out"></i>退出登录 </a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="page-head">
+                <ol class="breadcrumb">
+                    <li><a href="#">预约管理</a></li>
+                </ol>
+                <h3>预约管理</h3>
+            </div>
+            <div class="wrapper">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="form1 searchbox">
+                            <ul class="row">
+                                <li class="col-xs-2">
+                                    <span>车场号：</span>
+                                    <select class="form-control" id="park_id">
+                                        <option></option>
+                                    </select>
+                                </li>
+                                <li class="col-xs-2"> <span>状态：</span>
+                                    <select class="form-control" id="status_filter">
+                                        <option value="all">全部</option>
+                                        <option value="0">无效</option>
+                                        <option value="1">有效</option>
+                                    </select>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="line"></div>
+
+                        <table class="table m-t-20">
+                            <thead>
+                                <tr>
+                                    <th>预约ID</th>
+                                    <th>预约车辆</th>
+                                    <th>预约时间</th>
+                                    <th>预约状态</th>
+                                    <th>预约人</th>
+                                    <th>预约号码</th>
+                                    <th>预约车场</th>
+                                    <th>预约车位</th>
+                                    <th>操作</th>
+                                </tr>
+                            <tbody id="reserve_info">
+                            </tbody>
+                        </table>
+
+
+                        <div class="page clearfix">
+                            <div class="pull-left" id="listnum"></div>
+                            <div class="pull-right">
+                                <nav aria-label="..." class="pull-left">
+                                    <ul class="pagination">
+                                    </ul>
+                                </nav>
+                                <div class="pull-left p-r-20  p-l-20">
+                                    <select class="form-control" id="pageop">
+                                        <option>10条每页</option>
+                                        <option>20条每页</option>
+                                    </select>
+                                </div>
+                                <div class="pull-left page-jump">跳至
+                                    <input type="text" value="1" class="form-control">
+                                    页
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document" style="width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">编辑信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form1 form2">
+                        <ul class="row">
+                            <li class="col-xs-12"> <span>机器名称：</span>
+                                <input type="text" class="form-control">
+                            </li>
+                            <li class="col-xs-12"> <span>机器序列号：</span>
+                                <input type="text" class="form-control">
+                                <p class="text-info">机器序列号不可更改</p>
+                            </li>
+
+
+                            <li class="col-xs-12"> <span>机器串码：</span>
+                                <input type="text" class="form-control">
+                            </li>
+                            <li class="col-xs-12"> <span>机器所属供货：</span>
+                                <select class="form-control">
+                                    <option>选项1</option>
+                                </select>
+                            </li>
+                            <li class="col-xs-12"> <span>机器状态：</span>
+                                <select class="form-control">
+                                    <option>正常</option>
+                                </select>
+                            </li>
+                            <li class="col-xs-12"> <span>机器地址：</span>
+                                <input type="text" class="form-control">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document" style="width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel2">创建机器信息</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form1 form2">
+                        <ul class="row">
+                            <li class="col-xs-12"> <span>机器名称：</span>
+                                <input type="text" class="form-control">
+                            </li>
+                            <li class="col-xs-12"> <span>机器序列号：</span>
+                                <input type="text" class="form-control">
+
+                            </li>
+
+                            <li class="col-xs-12"> <span>机器串码：</span>
+                                <input type="text" class="form-control">
+                            </li>
+                            <li class="col-xs-12"> <span>机器地址：</span>
+                                <input type="text" class="form-control">
+                            </li>
+                            <li class="col-xs-12"> <span>机器所属供货：</span>
+                                <select class="form-control">
+                                    <option>选项1</option>
+                                </select>
+                            </li>
+                            <li class="col-xs-12"> <span>机器状态：</span>
+                                <select class="form-control">
+                                    <option>正常</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document" style="width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel3">创建机器信息</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="form1 form2">
+                        <ul class="row">
+                            <li class="col-xs-12"> <span>序列号前缀：</span>
+                                <input type="text" class="form-control">
+                            </li>
+                            <li class="col-xs-12"> <span>起始序列号：</span>
+                                <input type="text" class="form-control">
+
+                            </li>
+
+                            <li class="col-xs-12"> <span>数量：</span>
+                                <input type="text" class="form-control">
+                            </li>
+                            <li class="col-xs-12"> <span>机器串码：</span>
+                                <input type="text" class="form-control">
+                            </li>
+                            <li class="col-xs-12"> <span>机器地址：</span>
+                                <input type="text" class="form-control">
+                            </li>
+
+                            <li class="col-xs-12"> <span>机器地址：</span>
+                                <select class="form-control">
+                                    <option>选项1</option>
+                                </select>
+                            </li>
+                            <li class="col-xs-12"> <span>机器状态：</span>
+                                <select class="form-control">
+                                    <option>正常</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="../public/js/bootstrap.js"></script>
+    <script src="../public/js/echarts.min.js"></script>
+    <script src="../public/js/scripts.js"></script>
+    <script src="../public/laydate/laydate.js"></script> -->
+
+    <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }} "></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script src="{{ url_for('static', filename='laydate/laydate.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reserve.js') }}"></script>
+    <script>
+        lay('#version').html('-v' + laydate.v);
+        laydate.render({
+            elem: '#test1'
+            , range: true
+            , theme: '#1890ff'
+        });
+    </script>
+</body>
+
+</html>

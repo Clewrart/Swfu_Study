@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>登录</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+</head>
+
+<body>
+    <div class="login-container">
+        <h1>用户登录</h1>
+        <div class="input-group">
+            <label for="username">账号</label>
+            <input type="text" id="username" placeholder="请输入账号">
+        </div>
+        <div class="input-group">
+            <label for="password">密码</label>
+            <input type="password" id="password" placeholder="密码">
+        </div>
+        <div data-v-589acdb2="" class="inform-title" style="text-align: center; margin-bottom: 10px;">
+            还没有账号？
+            <span class="finger-point">👉</span>
+            <a data-v-589acdb2="" href="/register">
+                点此注册
+            </a>
+        </div>
+        <button type="login" id="login">登录</button>
+    </div>
+</body>
+<script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }} "></script>
+<script src="{{ url_for('static', filename='js/common.js') }}"></script>
+<script src="{{ url_for('static', filename='js/login.js') }}"></script>
+
+</html>

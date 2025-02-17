@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>车位导引</title>
+    <link rel="stylesheet" href="https://a.amap.com/jsapi_demos/static/demo-center/css/demo-center.css" />
+    <style>
+        html,
+        body,
+        #container {
+            height: 300px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        
+        #routeResult {
+            margin-top: 20px;
+        }
+        
+        #plan {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #14c69c;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+        
+        #plan:hover {
+            background-color: #53e10c;
+        }
+        
+        #navButton {
+            display: none;
+            margin-left: 7px;
+            padding: 0 20px;
+            height: 30px;
+            line-height: 15px;
+            background-color: #f3c318;
+            color: black;
+            border: none;
+            cursor: pointer;
+            border-radius: 50px;
+            font-size: 12px;
+            text-align: center;
+        }
+        
+        #navButton:hover {
+            background-color: #0d4f80;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height: 40px; background-color: blanchedalmond; color: red;font-size: 20px;display: flex; justify-content: center; align-items: center;"><b>导引页面仅供参考！请注意观察！</b></div>
+    <p class="for_locationid" style="display: none;">{{ for_locationid }}</p>
+    <p id="status" style="font-size: 11px;color:orange"></p>
+    <p class="carid" style="display: none;">{{ carid }}</p>
+    <div id="container"></div>
+    <button onclick="onSubmitid()" id="plan" style="display: none;">规划路线</button>
+
+
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: 'aade140a134198ba092ad49c7edf1656',
+        };
+    </script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=852bb304f246c06caff0a9fbf60fc62e"></script>
+    <script type="text/javascript">
+        var map = new AMap.Map('container', {
+            zoom: 12
+        });
+
+        var currentPosition = null; //用户当前位置
+        var destination = null; //目的地
+        var driving = null; //路线规划对象
+
+        //导航按钮
+        function displayNavButton() {
+            var navButton = document.getElementById('navButton');
+            navButton.style.display = 'block';
+            navButton.onclick = function() {
+                if (destination) {
+                    var navUrl = 'https://uri.amap.com/marker?position=' + destination.lng + ',' + destination.lat;
+                    window.location.href = navUrl; //跳转到高德地图进行导航
+                } else {
+                    alert("目标位置未获取！");
+                }
+            };
+        }
+
+        //当前定位
+        function getCurrentPosition() {
+            AMap.plugin('AMap.Geolocation', function() {
+                var geolocation = new AMap.Geolocation({
+                    enableHighAccuracy: true,
+                    timeout: 10000,
+                    buttonPosition: 'LB',
+                    buttonOffset: new AMap.Pixel(10, 20),
+                    zoomToAccuracy: true,
+                    needAddress: true,
+                    location_type: true,
+                    addressComponent: true,
+                    isConverted: true,
+                    convert: true
+                });
+                map.addControl(geolocation);
+                geolocation.getCurrentPosition(function(status, result) {
+                    if (status === 'complete') {
+                        onComplete(result);
+                    } else {
+                        onError(result);
+                    }
+                });
+            });
+        }
+
+        //定位成功后的回调
+        function onComplete(data) {
+            var str = [];
+            console.log('定位结果：' + data.position);
+            console.log('定位类别：' + data.location_type);
+            str.push(data.formattedAddress);
+            currentPosition = data.position;
+
+            if (data.accuracy) {
+                str.push('定位精度：' + data.accuracy + ' 米');
+            }
+
+            document.getElementById('result').innerHTML = str.join('<br>');
+            document.getElementById('plan').click();
+        }
+
+        //定位失败的回调
+        function onError(data) {
+            document.getElementById('status').innerHTML = '定位失败';
+            document.getElementById('result').innerHTML = '请尝试刷新页面或给予位置信息授权！';
+        }
+
+        //从后端获取车位经纬度
+        function getParkingLocation(id) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', '/getParkingLocation?id=' + id, true);
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    if (data && data.lat && data.lng) {
+                        destination = {
+                            lat: data.lat,
+                            lng: data.lng
+                        };
+                        planRoute();
+
+                    } else {
+                        alert("无法获取车位位置！");
+                    }
+                } else if (xhr.readyState === 4) {
+                    alert("无法获取车位位置或车位ID无效！");
+                }
+            };
+            xhr.send();
+        }
+
+        //算路
+        function planRoute() {
+            if (!currentPosition) {
+                alert("无法获取当前位置");
+                return;
+            }
+
+
+            //AMap.Driving
+            AMap.plugin('AMap.Driving', function() {
+                driving = new AMap.Driving({
+                    map: map, //地图对象
+                    panel: "routeResult" //算路结果
+                });
+
+                //计算并显示路线
+                driving.search([currentPosition.lng, currentPosition.lat], [destination.lng, destination.lat]);
+            });
+
+
+            displayNavButton();
+        }
+
+        //页面加载时获取当前位置
+        window.onload = function() {
+            getCurrentPosition();
+        };
+
+        //获取车位id--获取车位经纬度并进行算路
+        function onSubmitid() {
+            var id = document.getElementById('id').value;
+            if (id) {
+                getParkingLocation(id);
+            } else {
+                alert("请输入车位ID！");
+            }
+        }
+    </script>
+
+    <div style="font-size: 16px;margin-left: 20px;">
+        <br>
+        <div>系统认为车辆<b>{{carplate}}</b>当前位于<br>
+            <b>
+            <div id="result"> </div>
+            </b>
+        </div>
+        <input type="text" id="id" style="display:none" value="{{ for_locationid }}" readonly="">
+        <label style="font-size: 20px;display: flex;color:brown;">车位：<b>{{ address }}</b><button id="navButton">开始导航</button> </label>
+    </div>
+    <div id="routeResult"></div>
+
+
+</body>
+
+</html>

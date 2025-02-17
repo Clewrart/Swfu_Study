@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>车主注册</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
+
+</head>
+
+<body style="background-color: blanchedalmond;">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container" style="display: flex;justify-content: center;align-items: center;">
+            <a id="dhl" class="nav-link" href="{{ url_for('login') }}" style="color:black;text-align:right;font-size: 30px;">智慧停车系统（车主端）</a>
+            <ul class="nav justify-content-left">
+                {% if not usernow %} {% else %}
+
+                <li class="nav-item">
+                    <a class="nav-link" style="color: aquamarine;">欢迎您，{{ usernow }} </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}" style="color: black;font-size: larger;">退出登录</a>
+                </li>
+                {% endif %}
+
+
+                <div class="container">
+                    <div class="login-form">
+                        <br>
+                        <h2 class="text-center">注册</h2>
+                        <p style="text-align: center;">请输入用户名、密码和电话号码完成注册</p>
+                        <form action="{{ url_for('regi_submit')}}" method="post" onsubmit="return checkPassword()">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">设定用户名</label>
+                                <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">设定密码</label>
+                                <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+                            </div>
+                            <div class="mb-3">
+                                <label for="confirmPassword" class="form-label">确认密码</label>
+                                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="请再次输入密码">
+                            </div>
+                            <div class="mb-3">
+                                <label for="telnum" class="form-label">设定电话号码</label>
+                                <input type="telnum" class="form-control" id="telnum" name="telnum" placeholder="请输入11位电话号码">
+                            </div>
+                            <button type="submit" class="btn btn-warning w-100">注册</button>
+                        </form>
+                    </div>
+                </div>
+
+
+</body>
+<script src="{{url_for('static', filename='/js/bootstrap.bundle.min.js')}}"></script>
+<script src="{{url_for('static', filename='/js/checkpwd.js')}}"></script>
+
+</html>

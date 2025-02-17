@@ -1,0 +1,338 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>智慧车位</title>
+
+    <script src="../public/js/jquery.js"></script>
+    <link rel="stylesheet" href="../public/css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link href="../public/css/bootstrap.css" rel="stylesheet">
+    <link href="../public/css/style-responsive.css" rel="stylesheet">
+    <link href="../public/css/default-theme.css" rel="stylesheet">
+    <link href="../public/css/style.css" rel="stylesheet">
+    <link href="../public/css/bootstrap-reset.css" rel="stylesheet">
+</head>
+
+<body class="sticky-header">
+    <section>
+        <div class="sidebar-left">
+            <div class="sidebar-left-info">
+                <div class=" search-field"> </div>
+                <ul class="nav nav-pills nav-stacked side-navigation">
+                    <li class="menu-list nav-active">
+                        <a href="" id="location_manage"><i class="fa fa-drivers-license"></i> <span>车位管理</span></a>
+                    </li>
+
+                    <li class="menu-list">
+                        <a href="/location" id="location_manage"><i class="fa fa-car"></i> <span>车位管理</span></a>
+                    </li>
+                    <li class="menu-list" id="one"><a href="reserve" id="yu"><i class="fa fa-desktop"></i>
+                            <span>预约管理</span></a>
+                    </li>
+                    <li class="menu-list">
+                        <a href="/data" id="data_manage"><i class="fa fa-pie-chart"></i> <span>数据管理</span></a>
+                    </li>
+                    <li class="menu-list">
+                        <a href="" id="user_manage"><i class="fa fa-users"></i> <span>用户管理</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="body-content">
+            <div class="header-section">
+                <div class="logo dark-logo-bg">
+                    <a href="/">
+                        <img src="img/logo-icon.png" alt="">
+                        <!--<i class="fa fa-maxcdn"></i>-->
+                        <span class="brand-name" style="font-size: 15px; font-weight: bold;">智慧车位</span>
+                    </a>
+                </div>
+                <div class="icon-logo dark-logo-bg hidden-xs hidden-sm"> <a href="/"><img
+                            src="img/logo-icon.png" alt=""> </a> </div>
+                <a class="toggle-btn"><i class="fa fa-outdent"></i></a>
+                
+                <div class="notification-wrap">
+                    <div class="right-notification">
+                        <ul class="notification-menu">
+                            <li class="dropdown">
+                                <a href="javascript:;" data-toggle="dropdown" class="dropdown-toggle"
+                                    aria-expanded="false"> <i class="fa  fa-cogs"></i> 账号设置 <b
+                                        class=" fa fa-angle-down"></b></a>
+
+                                <ul role="menu" class="dropdown-menu language-switch">
+                                    <li>
+                                        <a href="充值活动.html">充值活动</a>
+                                        <a href="修改密码.html">修改密码</a>
+                                    </li>
+
+                                </ul>
+
+                            </li>
+
+
+
+                            <li> <a href="javascript:;" class="btn btn-default  dropdown-toggle" id="welcome"> <i
+                                        class="fa fa-sign-out"></i>退出登录 </a> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="page-head">
+                <ol class="breadcrumb">
+                    <li><a href="/">车辆管理</a></li>
+                    <li class="active">卡号管理</li>
+                </ol>
+                <h3>卡号管理</h3>
+            </div>
+            <div class="wrapper">
+                <div class="panel">
+                    <div class="panel-body">
+                        <div class="form1 searchbox">
+                            <ul class="row">
+                                <li class="col-xs-3">
+                                    <span>卡号：</span>
+                                    <input type="text" class="form-control">
+                                </li>
+                                <li class="col-xs-3">
+                                    <span>状态：</span>
+                                    <select class="form-control">
+                                        <option>未绑定</option>
+                                        <option>使用中</option>
+                                        <option>补卡</option>
+                                    </select>
+                                </li>
+                                <li class="col-xs-4" style="padding-left: 0"> <a href="#" class="btn btn-primary">查询</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="line"></div>
+                        <table class="table m-t-20">
+                            <thead>
+                                <tr>
+                                    <th>卡号</th>
+                                    <th>卡状态</th>
+                                    <th>姓名</th>
+                                    <th>所在学校</th>
+                                    <th>所在年级</th>
+                                    <th>所在班级</th>
+                                    <th>余额</th>
+                                    <th>限购次数</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1537897654</td>
+                                    <td>补卡</td>
+                                    <td>李娜</td>
+                                    <td>黄岗二中</td>
+                                    <td>三年级</td>
+                                    <td>二班</td>
+                                    <td>19.99</td>
+                                    <td>3</td>
+                                    <td><a href="#" data-toggle="modal" data-target="#myModal">编辑</a> <a href="#">删除</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1537897654</td>
+                                    <td>补卡</td>
+                                    <td>李娜</td>
+                                    <td>黄岗二中</td>
+                                    <td>三年级</td>
+                                    <td>二班</td>
+                                    <td>19.99</td>
+                                    <td>3</td>
+                                    <td><a href="#" data-toggle="modal" data-target="#myModal">编辑</a> <a href="#">删除</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1537897654</td>
+                                    <td>补卡</td>
+                                    <td>李娜</td>
+                                    <td>黄岗二中</td>
+                                    <td>三年级</td>
+                                    <td>二班</td>
+                                    <td>19.99</td>
+                                    <td>3</td>
+                                    <td><a href="#" data-toggle="modal" data-target="#myModal">编辑</a> <a href="#">删除</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1537897654</td>
+                                    <td>补卡</td>
+                                    <td>李娜</td>
+                                    <td>黄岗二中</td>
+                                    <td>三年级</td>
+                                    <td>二班</td>
+                                    <td>19.99</td>
+                                    <td>3</td>
+                                    <td><a href="#" data-toggle="modal" data-target="#myModal">编辑</a> <a href="#">删除</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>1537897654</td>
+                                    <td>补卡</td>
+                                    <td>李娜</td>
+                                    <td>黄岗二中</td>
+                                    <td>三年级</td>
+                                    <td>二班</td>
+                                    <td>19.99</td>
+                                    <td>3</td>
+                                    <td><a href="#" data-toggle="modal" data-target="#myModal">编辑</a> <a href="#">删除</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="page clearfix">
+                            <div class="pull-left">共 400 条记录 第 1 / 80 页</div>
+                            <div class="pull-right">
+                                <nav aria-label="..." class="pull-left">
+                                    <ul class="pagination">
+                                        <li class="disabled"><a href="#" aria-label="Previous"><span
+                                                    aria-hidden="true">«</span></a></li>
+                                        <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
+                                        <li><a href="#">2</a></li>
+                                        <li><a href="#">3</a></li>
+                                        <li><a href="#">4</a></li>
+                                        <li><a href="#">5</a></li>
+                                        <li><a href="#" aria-label="Next"><span aria-hidden="true">»</span></a></li>
+                                    </ul>
+                                </nav>
+                                <div class="pull-left p-r-20  p-l-20">
+                                    <select class="form-control">
+                                        <option>10条每页</option>
+                                    </select>
+                                </div>
+                                <div class="pull-left">
+                                    跳至
+                                    <input type="text" value="5" class="form-control">
+                                    页
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document" style="width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel">修改卡信息</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form1">
+                        <ul class="row">
+                            <li class="col-xs-12">
+                                <span>车牌号：</span>
+                                <input type="text" class="form-control">
+                            </li>
+                            <li class="col-xs-12">
+                                <span>车主号：</span>
+                                <input type="text" class="form-control">
+                            </li>
+
+                            <li class="col-xs-12">
+                                <span>车辆颜色：</span>
+                                <input type="text" class="form-control">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">修改</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel3">
+        <div class="modal-dialog" role="document" style="width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel3">批量增加车辆</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form1">
+                        <ul class="row">
+                            <li class="col-xs-12"> <span>系列：</span><input type="text" class="form-control"> </li>
+                            <li class="col-xs-12"> <span>起始卡号：</span><input type="text" class="form-control"> </li>
+                            <li class="col-xs-7"> <span>数量：</span><input type="text" class="form-control"> </li>
+                            <li class="col-xs-7">
+                                <span>卡状态：</span>
+                                <select class="form-control">
+                                    <option>未绑定</option>
+                                    <option>使用中</option>
+                                    <option>补卡</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">新增</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel4">
+        <div class="modal-dialog" role="document" style="width: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">×</span></button>
+                    <h4 class="modal-title" id="myModalLabel4">EXCEL导入车辆</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form1">
+                        <ul class="row">
+                            <li class="col-xs-12"> <span>选择文件：</span><input type="file"> </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">导入</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="../public/js/bootstrap.js"></script>
+    <script src="../public/js/echarts.min.js"></script>
+    <script src="../public/js/scripts.js"></script>
+    <script src="../public/laydate/laydate.js"></script>
+    <script>
+        lay('#version').html('-v' + laydate.v);
+        laydate.render({
+            elem: '#test1'
+            , range: true
+            , theme: '#1890ff'
+        });
+    </script>
+
+
+
+</body>
+
+</html>

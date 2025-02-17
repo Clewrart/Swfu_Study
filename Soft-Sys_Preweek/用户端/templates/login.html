@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>车主登录</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/index.css')}}">
+</head>
+
+<body style="background-color: blanchedalmond;">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container" style="display: flex;justify-content: center;align-items: center;">
+            <a id="dhl" class="nav-link" href="{{ url_for('login') }}" style="color:black;text-align:right;font-size: 30px;">智慧停车系统（车主端）</a>
+            <ul class="nav justify-content-left">{% if not usernow %} {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" style="color: aquamarine;">欢迎您，{{ usernow }} </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('logout') }}" style="color: black;font-size: larger;">退出登录</a>
+                </li>
+                {% endif %}
+
+                <div class="container">
+                    <div class="login-form">
+                        <br>
+                        <h2 class="text-center">登录</h2>
+                        <p style="text-align: center;">请输入电话和密码完成登录<br><a style="color: red;">如果你是首次访问请注册！</a><br>
+                         {% if jest %}
+                            <p style="color:red ;"><b>{{ jest }}</b></p>
+                        {% endif %}
+                        </p>
+                        <form action="{{ url_for('login_submit')}}" method="post">
+                            <div class="mb-3">
+                                <label for="telephone" class="form-label">电话</label>
+                                <input type="tel" class="form-control" name="telephone" required placeholder="请输入电话号码">
+                            </div>
+                            <div class="mb-3">
+                                <label for="password" class="form-label">密码</label>
+                                <input type="password" class="form-control" name="password" required placeholder="请输入密码">
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">登录</button>
+                        </form>
+                        <div class="text-center mt-3">
+                            <a href="{{url_for('regi')}}" class="btn btn-secondary w-100">首次访问？让我们从注册开始！</a>
+                        </div>
+                    </div>
+                </div>
+
+                <script src="{{url_for('static', filename='/js/bootstrap.bundle.min.js')}}"></script>
+                <script src="{{url_for('static', filename='/js/checkusrpwd.js')}}"></script>
+</body>
+
+</html>

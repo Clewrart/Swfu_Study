@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>智慧车位</title>
+
+
+  <script src="{{ url_for('static', filename='js/jquery-3.7.1.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/echarts.min.js') }}"></script>
+  <link rel="stylesheet"
+    href="{{ url_for('static', filename='css/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style-responsive.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/default-theme.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-reset.css') }}">
+
+</head>
+
+<body class="sticky-header">
+  <section>
+    <div class="sidebar-left">
+      <div class="sidebar-left-info">
+        <div class=" search-field"> </div>
+        <ul class="nav nav-pills nav-stacked side-navigation">
+          <li class="menu-list"> <a href="/" id="car_manage"><i class="fa fa-drivers-license"></i> <span>车辆管理</span></a>
+          </li>
+          <li class="menu-list"><a href="location" id="location_manage"><i class="fa fa-desktop"></i>
+              <span>车位管理</span></a>
+          </li>
+          <li class="menu-list" id="one"><a href="预约管理.html" id="yu"><i class="fa fa-desktop"></i> <span>预约管理</span></a>
+          </li>
+          <li class="menu-list nav-active"><a href="/data"><i class="fa fa-pie-chart"></i> <span>数据管理</span></a>
+          </li>
+          <li class="menu-list"><a href="/user" id="user_manage"><i class="fa fa-users"></i> <span>用户管理</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="body-content">
+      <div class="header-section">
+        <div class="logo dark-logo-bg"> <a href="/"> <img src="img/logo-icon.png" alt="">
+            <!--<i class="fa fa-maxcdn"></i>-->
+            <span class="brand-name" style="font-size: 15px; font-weight: bold;">智慧车位</span> </a> </div>
+        <div class="icon-logo dark-logo-bg hidden-xs hidden-sm"> <a href="/"><img src="img/logo-icon.png" alt=""> </a>
+        </div>
+        <a class="toggle-btn"><i class="fa fa-outdent"></i></a>
+
+        <div class="notification-wrap">
+          <div class="right-notification">
+            <ul class="notification-menu">
+              <li> <a href="javascript:;" class="btn btn-default  dropdown-toggle" id="welcome"> <i
+                    class="fa  fa-cogs"></i>账号设置 </a>
+              </li>
+              <li> <a href="javascript:;" class="btn btn-default  dropdown-toggle" id="logout"> <i
+                    class="fa fa-sign-out"></i>退出登录
+                </a> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="page-head">
+        <ol class="breadcrumb">
+          <li><a href="/data">数据管理</a></li>
+        </ol>
+        <h3>数据统计</h3>
+      </div>
+      <div class="wrapper" style="width: 100%;">
+        <div class="panel">
+          <div class="panel-body">
+
+            <div class="tab-content m-t-10">
+              <div class="pull-left">
+                <div class="form1">
+                  <ul>
+                    <li style="width: 200px;"> <span>车场：</span>
+                      <select class="form-control" id="park_num">
+                        <option></option>
+                      </select>
+                    </li>
+                    <li style="width: 200px; margin-left: 20px;">
+                      <span>时间维度：</span>
+                      <select class="form-control" id="time_dimension">
+                        <option value="day">按天</option>
+                        <option value="week">按周</option>
+                        <option value="month">按月</option>
+                        <option value="year">按年</option>
+                      </select>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row">
+
+              </div>
+            </div>
+            <div class="col-md-6" style="width: 100%;">
+              <div class="panel">
+                <div class="panel-body" style="height: 80%;">
+                  <div style="height: 500px;" id="echart2"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+  <script src="{{ url_for('static', filename='laydate/laydate.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/common.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/data_manage.js') }}"></script>
+
+  <script>
+    lay('#version').html('-v' + laydate.v);
+    laydate.render({
+      elem: '#test1',
+      theme: '#1890ff'
+    });
+  </script>
+
+</body>
+
+</html>

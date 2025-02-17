@@ -1,0 +1,110 @@
+/* 模态框背景 */
+
+.modal {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+/* 模态框内容 */
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    text-align: center;
+    position: relative;
+}
+
+
+/* 标题样式 */
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 24px;
+    color: #333;
+}
+
+
+/* 输入框样式 */
+
+#loginForm label {
+    font-size: 14px;
+    color: #555;
+    display: block;
+    margin: 10px 0 5px;
+    text-align: left;
+}
+
+#loginForm input[type="text"],
+#loginForm input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+
+/* 按钮样式 */
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.login-btn,
+.register-btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.login-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.register-btn {
+    background-color: #2196F3;
+    color: white;
+}
+
+.login-btn:hover {
+    background-color: #45a049;
+}
+
+.register-btn:hover {
+    background-color: #1976D2;
+}
+
+
+/* 关闭按钮样式 */
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: #555;
+}

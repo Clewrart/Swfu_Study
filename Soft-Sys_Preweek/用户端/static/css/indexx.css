@@ -1,0 +1,47 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.nav-link {
+    color: blue;
+    text-align: left;
+    font-size: larger;
+}
+
+.nav-link:hover {
+    color: white
+}
+
+body {
+    background-image: url('../bgimg/1.png');
+    background-size: cover;
+}
+
+.card {
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.card-text {
+    flex-grow: 1;
+}
+
+.card-subtitle {
+    font-size: 0.875rem;
+}
+
+.card-link {
+    align-self: flex-end;
+}

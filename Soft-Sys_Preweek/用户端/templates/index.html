@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>智能车辆车位信息系统</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='css/font-awesome-4.7.0/css/font-awesome.css')}}">
+    <script type="text/javascript" src="{{url_for('static',filename='js/jquery-3.7.1.js')}}"></script>
+    <style>
+        button {
+            padding: 3px;
+        }
+        
+        .font_style {
+            font-size: 25px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $(".order").click(function() {
+                // 获取点击按钮的父元素 .item
+                var item = $(this).closest('.item');
+
+                // 找到父元素 .item 内的 .theDetail，并显示
+                item.find('.theDetail').show();
+            });
+            // 点击关闭按钮隐藏模态框
+            $(".close").click(function() {
+                $(".theDetail").hide();
+            });
+
+            // 点击模态框外部区域隐藏模态框
+            $(window).click(function(event) {
+                if ($(event.target).is(".theDetail")) {
+                    $(".theDetail").hide();
+                }
+            });
+
+            $(".no_order").click(function() {
+                // 获取点击按钮的父元素 .item
+                var item = $(this).closest('.item');
+
+                // 找到父元素 .item 内的 .theDetail，并显示
+                item.find('.choose').show();
+            });
+            // 点击关闭按钮隐藏模态框
+            $(".close").click(function() {
+                $(".choose").hide();
+            });
+
+            // 点击模态框外部区域隐藏模态框
+            $(window).click(function(event) {
+                if ($(event.target).is(".choose")) {
+                    $(".choose").hide();
+                }
+            });
+
+            $(".order_submit").click(function() {
+                var item = $(this).closest('.item');
+                var id = item.find('.carid').html();
+                var carnum = item.find('.carnum').html();
+                var parknum = item.find('.parknum').val();
+                $.ajax({
+                    type: "POST",
+                    url: '/order_submit/',
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        "carid": id,
+                        "carnum": carnum,
+                        "parknum": parknum,
+                    }),
+                    success: function(data) {
+                        if (data['code'] == "True") {
+                            alert("预约成功");
+                            window.location.href = "/order/";
+                        } else {
+                            alert("预约失败，该停车场无空余车位！");
+                            window.location.href = "/dashboard";
+                        }
+                    },
+                    error: function(err) {
+                        alert("error");
+                    }
+
+                })
+            })
+
+            $(".submit_move").click(function() {
+                var item = $(this).closest('.choose');
+                var id = item.find('.carid').html();
+                var parknum = item.find('.parknum').val();
+                $.ajax({
+                    type: "POST",
+                    url: '/no_order/',
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        "carid": id,
+                        "parknum": parknum,
+                    }),
+                    success: function(data) {
+                        if (data['code'] == "False") {
+                            alert("该停车场无车位！");
+                        } else {
+                            for_locationid = data['for_locationid'];
+                            window.location.href = "/move/" + for_locationid + "/" + id;
+                        }
+                    },
+                    error: function(err) {
+                        alert("error");
+                    }
+
+
+                })
+            })
+
+            $(".have_order").click(function() {
+                // 获取点击按钮的父元素 .con
+                var item = $(this).closest('.con');
+                var car_id = item.find('.car_id').html();
+                $.ajax({
+                    type: "POST",
+                    url: '/have_order/',
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        "carid": car_id,
+                    }),
+                    success: function(data) {
+                        for_locationid = data['for_locationid'];
+                        window.location.href = "/move/" + for_locationid + "/" + car_id;
+                    },
+                    error: function(err) {
+                        alert("error");
+                    }
+
+                })
+            })
+
+            $(".out").click(function() {
+                // 获取点击按钮的父元素 .item
+                var item = $(this).closest('.con');
+                var car_id = item.find('.car_id').html();
+                $.ajax({
+                    type: "POST",
+                    url: '/out/',
+                    contentType: "application/json;charset=UTF-8",
+                    dataType: 'json',
+                    data: JSON.stringify({
+                        "carid": car_id,
+                    }),
+                    success: function(data) {
+                        alert("已成功驶出车位！");
+                        window.location.href = "/dashboard";
+                    },
+                    error: function(err) {
+                        alert("error");
+                    }
+
+                })
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <section class="aui-flexView">
+        <header class="aui-navBar aui-navBar-fixed">
+            <div class="aui-center"><span class="aui-center-title" style="font-size: 20 px;">智能车辆车位信息系统</span></div><a href="javascript:;" class="aui-navBar-item"><i class="icon icon-sys"></i></a></header>
+        <section class="aui-scrollView">
+            <div class="aui-vehicle-cell">
+                <a href="javascript:;" class="aui-flex b-line">
+                    <div>
+                        <img src="static/images/usernow.jpg" alt="用户头像" class="userimg">
+                        <h1>用户名：{{username}}</h1>
+                        <a href="{{url_for('logout')}}"><button> 点击退出</button>
+                        </a><br>
+                    </div>
+
+                    <div class="aui-flex">
+                        <div class="aui-flex-box">
+                            <h2>功能</h2>
+                        </div>
+                    </div>
+                    <div class="aui-vehicle-cell">
+                        <a href="{{ url_for('order') }}" class="aui-vehicle-cell-item">
+                            <h2>预约记录</h2>
+                            <p>查看并管理预约记录</p>
+                        </a>
+                        <a href="{{ url_for('car') }}" class="aui-vehicle-cell-item">
+                            <h2>车辆管理</h2>
+                            <p>查看并管理我的车辆</p>
+                        </a>
+                        <a href="{{ url_for('use_location') }}" class="aui-vehicle-cell-item">
+                            <h2>车位信息</h2>
+                            <p>查看我使用中的车位</p>
+                        </a>
+                    </div>
+                    <div class="aui-flex b-line">
+                        <div class="aui-flex-box">
+                            <h2>我的车辆</h2>
+                        </div>
+                        <div class="aui-arrow"><span></span></div>
+                    </div>
+                    <div class="aui-car-list">
+                        {% for car in cars %}
+
+                        <a href="javascript:;" class="aui-flex b-line item">
+                            <div class="aui-car-img">
+                                <img src="/static/images/{{ car['cartype'] }}.png" alt=""></div>
+                            <div class="aui-flex-box">
+                                <h1>{{car['carnum']}}</h1>
+                                {% if car['status'] == 0 %}
+                                <!-- 预约界面, 默认不显示 -->
+                                <div class="modal theDetail" style="display: none;">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <span class="font_style"><b>车位预约</b></span><br><br>
+                                        <div id="information">
+                                            <p class="carid" style="display: none;">{{car['id']}}</p>
+                                            <p>车牌号：<span class="carnum">{{ car['carnum'] }}</span></p><br> 选择停车场：
+                                            <select name="parknum" class="parknum" style="width: 200px;height: 30px;text-align: center; background-color: rgb(239, 239, 239);">
+                                        <option value="{{ locations[0]['parknum'] }}" selected>{{ locations[0]['parknum'] }}</option>
+                                        {% for location in locations[1:] %}
+                                        <option value="{{ location['parknum'] }}">{{ location['parknum'] }}</option>
+                                        {% endfor %}
+                                    </select><br><br>
+                                            <button class="order_submit">预约</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h2><button class="order">预约车位</button>&nbsp;&nbsp;&nbsp;<button class="in no_order">模拟驶入停车场</button></h2>
+                                <!-- 模拟驶入选择停车场界面, 默认不显示 -->
+                                <div class="modal choose" style="display: none;">
+                                    <div class="modal-content">
+                                        <span class="close">&times;</span>
+                                        <span class="font_style"><b>模拟驶入，选择停车场</b></span><br><br>
+                                        <div id="information">
+                                            <p class="carid" style="display: none;">{{car['id']}}</p>
+                                            <p>车牌号：<span class="carnum">{{ car['carnum'] }}</span></p><br> 选择停车场：
+                                            <select name="parknum" class="parknum" style="width: 200px;height: 30px;text-align: center; background-color: rgb(239, 239, 239);">
+                                        <option value="{{ locations[0]['parknum'] }}" selected>{{ locations[0]['parknum'] }}</option>
+                                        {% for location in locations[1:] %}
+                                        <option value="{{ location['parknum'] }}">{{ location['parknum'] }}</option>
+                                        {% endfor %}
+                                    </select><br><br>
+                                            <button class="submit_move">模拟驶入</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% elif car['status'] == 1 %}
+                                <h2 class="con">已驶入车位&nbsp;&nbsp;&nbsp;<span class="car_id" style="display: none;">{{ car['id'] }}</span><button class="out">模拟驶出停车场</button></h2>
+                                {% elif car['status'] == 2 %}
+                                <h2 class="con">已预约车位&nbsp;&nbsp;&nbsp;<span class="car_id" style="display: none;">{{ car['id'] }}</span><button class="in have_order">模拟驶入停车场</button></h2>
+                                {% elif car['status'] == 3 %}
+                                <h2 class="con"><span style="color: red;">停车时间异常</span>&nbsp;&nbsp;&nbsp;<span class="car_id" style="display: none;">{{ car['id'] }}</span><button class="out">模拟驶出停车场</button></h2>
+                                {% endif %}
+
+                            </div>
+                        </a>
+                        {% endfor %}
+                    </div>
+        </section>
+    </section>
+</body>
+
+</html>
