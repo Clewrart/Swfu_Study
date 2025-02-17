@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C01\\TriangleAreaDemo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{86CB2FFC-398A-490E-9EA1-14FD3FF8F2CC}|TriangleAreaDemo\\TriangleAreaDemo.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C01\\triangleareademo\\triangleareademo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{86CB2FFC-398A-490E-9EA1-14FD3FF8F2CC}|TriangleAreaDemo\\TriangleAreaDemo.csproj|solutionrelative:triangleareademo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C01\\TriangleAreaDemo\\TriangleAreaDemo\\Program.cs",
+              "RelativeDocumentMoniker": "TriangleAreaDemo\\Program.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C01\\TriangleAreaDemo\\TriangleAreaDemo\\Program.cs",
+              "RelativeToolTip": "TriangleAreaDemo\\Program.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAAwBYAAABBAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-08-29T04:32:11.287Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

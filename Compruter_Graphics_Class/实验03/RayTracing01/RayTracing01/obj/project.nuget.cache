@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "sn4e0Id2fIM=",
+  "success": true,
+  "projectFilePath": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\实验03\\RayTracing01\\RayTracing01\\RayTracing01.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gsy_y\\.nuget\\packages\\sixlabors.imagesharp\\3.0.0\\sixlabors.imagesharp.3.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

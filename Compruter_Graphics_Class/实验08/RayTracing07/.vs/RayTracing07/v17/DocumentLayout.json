@@ -1,0 +1,154 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C08\\raytracing07\\raytracing07\\render.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|solutionrelative:raytracing07\\render.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C08\\raytracing07\\raytracing07\\sphere.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|solutionrelative:raytracing07\\sphere.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C08\\raytracing07\\raytracing07\\material.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|solutionrelative:raytracing07\\material.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C08\\raytracing07\\raytracing07\\ray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|solutionrelative:raytracing07\\ray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C08\\raytracing07\\raytracing07\\hitable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|solutionrelative:raytracing07\\hitable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C08\\raytracing07\\raytracing07\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|solutionrelative:raytracing07\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C08\\raytracing07\\raytracing07\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|solutionrelative:raytracing07\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C08\\raytracing07\\raytracing07\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A99FB308-4793-45FB-9B92-5B0F47B67EB3}|RayTracing07\\RayTracing07.csproj|solutionrelative:raytracing07\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Scene.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Scene.cs",
+              "RelativeDocumentMoniker": "RayTracing07\\Scene.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Scene.cs",
+              "RelativeToolTip": "RayTracing07\\Scene.cs",
+              "ViewState": "AQIAABcAAAAAAAAAAAAYwCcAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T01:13:35.866Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Program.cs",
+              "RelativeDocumentMoniker": "RayTracing07\\Program.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Program.cs",
+              "RelativeToolTip": "RayTracing07\\Program.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAgwBQAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T01:13:35.866Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Material.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Material.cs",
+              "RelativeDocumentMoniker": "RayTracing07\\Material.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Material.cs",
+              "RelativeToolTip": "RayTracing07\\Material.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T01:13:35.772Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Render.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Render.cs",
+              "RelativeDocumentMoniker": "RayTracing07\\Render.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Render.cs",
+              "RelativeToolTip": "RayTracing07\\Render.cs",
+              "ViewState": "AQIAABQAAAAAAAAAAAAAwIcAAAAgAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T01:13:35.866Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Sphere.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Sphere.cs",
+              "RelativeDocumentMoniker": "RayTracing07\\Sphere.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Sphere.cs",
+              "RelativeToolTip": "RayTracing07\\Sphere.cs",
+              "ViewState": "AQIAACoAAAAAAAAAAAAAwEQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T01:13:35.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Ray.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Ray.cs",
+              "RelativeDocumentMoniker": "RayTracing07\\Ray.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Ray.cs",
+              "RelativeToolTip": "RayTracing07\\Ray.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAYwA0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T01:13:35.882Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Hitable.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Hitable.cs",
+              "RelativeDocumentMoniker": "RayTracing07\\Hitable.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Hitable.cs",
+              "RelativeToolTip": "RayTracing07\\Hitable.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABUAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T01:13:35.882Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Camera.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Camera.cs",
+              "RelativeDocumentMoniker": "RayTracing07\\Camera.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C08\\RayTracing07\\RayTracing07\\Camera.cs",
+              "RelativeToolTip": "RayTracing07\\Camera.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACIAAAAdAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-03T01:13:35.882Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

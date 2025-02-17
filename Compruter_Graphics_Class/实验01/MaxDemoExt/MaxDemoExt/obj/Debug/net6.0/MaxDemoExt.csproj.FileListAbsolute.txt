@@ -1,0 +1,14 @@
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\bin\Debug\net6.0\MaxDemoExt.exe
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\bin\Debug\net6.0\MaxDemoExt.deps.json
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\bin\Debug\net6.0\MaxDemoExt.runtimeconfig.json
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\bin\Debug\net6.0\MaxDemoExt.dll
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\bin\Debug\net6.0\MaxDemoExt.pdb
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net6.0\MaxDemoExt.GeneratedMSBuildEditorConfig.editorconfig
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net6.0\MaxDemoExt.AssemblyInfoInputs.cache
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net6.0\MaxDemoExt.AssemblyInfo.cs
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net6.0\MaxDemoExt.csproj.CoreCompileInputs.cache
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net6.0\MaxDemoExt.dll
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net6.0\refint\MaxDemoExt.dll
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net6.0\MaxDemoExt.pdb
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net6.0\MaxDemoExt.genruntimeconfig.cache
+C:\Course\C#语言程序设计\2023-2024-01\实验\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net6.0\ref\MaxDemoExt.dll

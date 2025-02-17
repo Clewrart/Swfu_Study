@@ -1,0 +1,17 @@
+C:\Project\CG\RayTracing01\RayTracing01\bin\Debug\net6.0\RayTracing01.exe
+C:\Project\CG\RayTracing01\RayTracing01\bin\Debug\net6.0\RayTracing01.deps.json
+C:\Project\CG\RayTracing01\RayTracing01\bin\Debug\net6.0\RayTracing01.runtimeconfig.json
+C:\Project\CG\RayTracing01\RayTracing01\bin\Debug\net6.0\RayTracing01.dll
+C:\Project\CG\RayTracing01\RayTracing01\bin\Debug\net6.0\RayTracing01.pdb
+C:\Project\CG\RayTracing01\RayTracing01\bin\Debug\net6.0\SixLabors.ImageSharp.dll
+C:\Project\CG\RayTracing01\RayTracing01\obj\Debug\net6.0\RayTracing01.csproj.AssemblyReference.cache
+C:\Project\CG\RayTracing01\RayTracing01\obj\Debug\net6.0\RayTracing01.GeneratedMSBuildEditorConfig.editorconfig
+C:\Project\CG\RayTracing01\RayTracing01\obj\Debug\net6.0\RayTracing01.AssemblyInfoInputs.cache
+C:\Project\CG\RayTracing01\RayTracing01\obj\Debug\net6.0\RayTracing01.AssemblyInfo.cs
+C:\Project\CG\RayTracing01\RayTracing01\obj\Debug\net6.0\RayTracing01.csproj.CoreCompileInputs.cache
+C:\Project\CG\RayTracing01\RayTracing01\obj\Debug\net6.0\RayTracing01.csproj.CopyComplete
+C:\Project\CG\RayTracing01\RayTracing01\obj\Debug\net6.0\RayTracing01.dll
+C:\Project\CG\RayTracing01\RayTracing01\obj\Debug\net6.0\refint\RayTracing01.dll
+C:\Project\CG\RayTracing01\RayTracing01\obj\Debug\net6.0\RayTracing01.pdb
+C:\Project\CG\RayTracing01\RayTracing01\obj\Debug\net6.0\RayTracing01.genruntimeconfig.cache
+C:\Project\CG\RayTracing01\RayTracing01\obj\Debug\net6.0\ref\RayTracing01.dll

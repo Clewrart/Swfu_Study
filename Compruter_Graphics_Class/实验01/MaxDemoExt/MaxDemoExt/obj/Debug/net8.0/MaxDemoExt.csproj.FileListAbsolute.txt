@@ -1,0 +1,14 @@
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\bin\Debug\net8.0\MaxDemoExt.exe
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\bin\Debug\net8.0\MaxDemoExt.deps.json
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\bin\Debug\net8.0\MaxDemoExt.runtimeconfig.json
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\bin\Debug\net8.0\MaxDemoExt.dll
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\bin\Debug\net8.0\MaxDemoExt.pdb
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net8.0\MaxDemoExt.GeneratedMSBuildEditorConfig.editorconfig
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net8.0\MaxDemoExt.AssemblyInfoInputs.cache
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net8.0\MaxDemoExt.AssemblyInfo.cs
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net8.0\MaxDemoExt.csproj.CoreCompileInputs.cache
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net8.0\MaxDemoExt.dll
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net8.0\refint\MaxDemoExt.dll
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net8.0\MaxDemoExt.pdb
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net8.0\MaxDemoExt.genruntimeconfig.cache
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验01\MaxDemoExt\MaxDemoExt\obj\Debug\net8.0\ref\MaxDemoExt.dll

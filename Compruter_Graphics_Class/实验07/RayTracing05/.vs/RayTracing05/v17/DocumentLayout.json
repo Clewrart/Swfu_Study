@@ -1,0 +1,134 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C07\\raytracing05\\raytracing05\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|solutionrelative:raytracing05\\scene.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C07\\raytracing05\\raytracing05\\sphere.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|solutionrelative:raytracing05\\sphere.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C07\\raytracing05\\raytracing05\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|solutionrelative:raytracing05\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C07\\raytracing05\\raytracing05\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|solutionrelative:raytracing05\\camera.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C07\\raytracing05\\raytracing05\\ray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|solutionrelative:raytracing05\\ray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C07\\raytracing05\\raytracing05\\render.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|solutionrelative:raytracing05\\render.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C07\\raytracing05\\raytracing05\\hitable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E91AF6FF-4C7F-4D4C-82C9-F64BFCE09D02}|RayTracing05\\RayTracing05.csproj|solutionrelative:raytracing05\\hitable.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Hitable.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Hitable.cs",
+              "RelativeDocumentMoniker": "RayTracing05\\Hitable.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Hitable.cs",
+              "RelativeToolTip": "RayTracing05\\Hitable.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T12:29:00.248Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Scene.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Scene.cs",
+              "RelativeDocumentMoniker": "RayTracing05\\Scene.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Scene.cs",
+              "RelativeToolTip": "RayTracing05\\Scene.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAYwCwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T12:29:00.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Sphere.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Sphere.cs",
+              "RelativeDocumentMoniker": "RayTracing05\\Sphere.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Sphere.cs",
+              "RelativeToolTip": "RayTracing05\\Sphere.cs",
+              "ViewState": "AQIAABIAAAAAAAAAAAAYwDgAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T12:29:00.327Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Render.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Render.cs",
+              "RelativeDocumentMoniker": "RayTracing05\\Render.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Render.cs",
+              "RelativeToolTip": "RayTracing05\\Render.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACkAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T12:29:00.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Ray.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Ray.cs",
+              "RelativeDocumentMoniker": "RayTracing05\\Ray.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Ray.cs",
+              "RelativeToolTip": "RayTracing05\\Ray.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAYwAIAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T12:29:00.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Camera.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Camera.cs",
+              "RelativeDocumentMoniker": "RayTracing05\\Camera.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Camera.cs",
+              "RelativeToolTip": "RayTracing05\\Camera.cs",
+              "ViewState": "AQIAAA4AAAAAAAAAAAAcwCAAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T12:29:00.327Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Program.cs",
+              "RelativeDocumentMoniker": "RayTracing05\\Program.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C07\\RayTracing05\\RayTracing05\\Program.cs",
+              "RelativeToolTip": "RayTracing05\\Program.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAzwBAAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-26T12:29:00.327Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

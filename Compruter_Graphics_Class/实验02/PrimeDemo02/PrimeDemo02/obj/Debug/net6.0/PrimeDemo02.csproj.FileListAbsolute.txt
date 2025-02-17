@@ -1,0 +1,14 @@
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\obj\Debug\net6.0\PrimeDemo02.GeneratedMSBuildEditorConfig.editorconfig
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\obj\Debug\net6.0\PrimeDemo02.AssemblyInfoInputs.cache
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\obj\Debug\net6.0\PrimeDemo02.AssemblyInfo.cs
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\obj\Debug\net6.0\PrimeDemo02.csproj.CoreCompileInputs.cache
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\bin\Debug\net6.0\PrimeDemo02.exe
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\bin\Debug\net6.0\PrimeDemo02.deps.json
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\bin\Debug\net6.0\PrimeDemo02.runtimeconfig.json
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\bin\Debug\net6.0\PrimeDemo02.dll
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\bin\Debug\net6.0\PrimeDemo02.pdb
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\obj\Debug\net6.0\PrimeDemo02.dll
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\obj\Debug\net6.0\refint\PrimeDemo02.dll
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\obj\Debug\net6.0\PrimeDemo02.pdb
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\obj\Debug\net6.0\PrimeDemo02.genruntimeconfig.cache
+D:\01CSTRecourse\2023-2024-02\Compruter_Graphics\实验02\PrimeDemo02\PrimeDemo02\obj\Debug\net6.0\ref\PrimeDemo02.dll

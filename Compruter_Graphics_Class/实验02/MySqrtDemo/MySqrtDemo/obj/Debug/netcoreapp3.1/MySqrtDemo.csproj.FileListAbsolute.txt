@@ -1,0 +1,14 @@
+F:\Project\C#\MySqrtDemo\MySqrtDemo\bin\Debug\netcoreapp3.1\MySqrtDemo.exe
+F:\Project\C#\MySqrtDemo\MySqrtDemo\bin\Debug\netcoreapp3.1\MySqrtDemo.deps.json
+F:\Project\C#\MySqrtDemo\MySqrtDemo\bin\Debug\netcoreapp3.1\MySqrtDemo.runtimeconfig.json
+F:\Project\C#\MySqrtDemo\MySqrtDemo\bin\Debug\netcoreapp3.1\MySqrtDemo.runtimeconfig.dev.json
+F:\Project\C#\MySqrtDemo\MySqrtDemo\bin\Debug\netcoreapp3.1\MySqrtDemo.dll
+F:\Project\C#\MySqrtDemo\MySqrtDemo\bin\Debug\netcoreapp3.1\MySqrtDemo.pdb
+F:\Project\C#\MySqrtDemo\MySqrtDemo\obj\Debug\netcoreapp3.1\MySqrtDemo.csproj.AssemblyReference.cache
+F:\Project\C#\MySqrtDemo\MySqrtDemo\obj\Debug\netcoreapp3.1\MySqrtDemo.GeneratedMSBuildEditorConfig.editorconfig
+F:\Project\C#\MySqrtDemo\MySqrtDemo\obj\Debug\netcoreapp3.1\MySqrtDemo.AssemblyInfoInputs.cache
+F:\Project\C#\MySqrtDemo\MySqrtDemo\obj\Debug\netcoreapp3.1\MySqrtDemo.AssemblyInfo.cs
+F:\Project\C#\MySqrtDemo\MySqrtDemo\obj\Debug\netcoreapp3.1\MySqrtDemo.csproj.CoreCompileInputs.cache
+F:\Project\C#\MySqrtDemo\MySqrtDemo\obj\Debug\netcoreapp3.1\MySqrtDemo.dll
+F:\Project\C#\MySqrtDemo\MySqrtDemo\obj\Debug\netcoreapp3.1\MySqrtDemo.pdb
+F:\Project\C#\MySqrtDemo\MySqrtDemo\obj\Debug\netcoreapp3.1\MySqrtDemo.genruntimeconfig.cache

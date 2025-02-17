@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C02\\PrimeDemo02\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{7594928F-6F7C-450A-9672-0F1B0EB970A4}|PrimeDemo02\\PrimeDemo02.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C02\\primedemo02\\primedemo02\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7594928F-6F7C-450A-9672-0F1B0EB970A4}|PrimeDemo02\\PrimeDemo02.csproj|solutionrelative:primedemo02\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C02\\PrimeDemo02\\PrimeDemo02\\Program.cs",
+              "RelativeDocumentMoniker": "PrimeDemo02\\Program.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C02\\PrimeDemo02\\PrimeDemo02\\Program.cs",
+              "RelativeToolTip": "PrimeDemo02\\Program.cs",
+              "ViewState": "AQIAABkAAAAAAAAAAAAAwC4AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-21T23:53:30.052Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

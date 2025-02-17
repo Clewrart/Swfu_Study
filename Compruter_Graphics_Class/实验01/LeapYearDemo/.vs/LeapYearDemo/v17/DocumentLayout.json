@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C01\\LeapYearDemo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{49C7B3AA-EEE2-4B93-9A59-B8F85D6976AA}|LeapYearDemo\\LeapYearDemo.csproj|d:\\01cstrecourse\\2023-2024-02\\compruter_graphics\\\u5B9E\u9A8C01\\leapyeardemo\\leapyeardemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{49C7B3AA-EEE2-4B93-9A59-B8F85D6976AA}|LeapYearDemo\\LeapYearDemo.csproj|solutionrelative:leapyeardemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C01\\LeapYearDemo\\LeapYearDemo\\Program.cs",
+              "RelativeDocumentMoniker": "LeapYearDemo\\Program.cs",
+              "ToolTip": "D:\\01CSTRecourse\\2023-2024-02\\Compruter_Graphics\\\u5B9E\u9A8C01\\LeapYearDemo\\LeapYearDemo\\Program.cs",
+              "RelativeToolTip": "LeapYearDemo\\Program.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAABYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2023-08-29T04:31:53.506Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
