@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1711694746 source:d:\01cstrecourse\2023-2024-02\datastruct\algo1-0-1\1-1\1-2\main.c
+	<stdio.h>
+	<sys/timeb.h>
+

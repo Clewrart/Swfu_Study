@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1715483462 source:d:\01cstrecourse\2023-2024-02\datastruct\algo3-1\main.c
+	<stdio.h>
+	<stdbool.h>
+

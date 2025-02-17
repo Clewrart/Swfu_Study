@@ -1,0 +1,16 @@
+# depslib dependency file v1.0
+1712405431 source:d:\01cstrecourse\2023-2024-02\datastruct\zy4\bo2-1.c
+	"c1.h"
+	"c2-1.h"
+	<stdlib.h>
+
+1712405322 d:\01cstrecourse\2023-2024-02\datastruct\zy4\c1.h
+	<string.h>
+	<ctype.h>
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+
+1712405586 d:\01cstrecourse\2023-2024-02\datastruct\zy4\c2-1.h
+
