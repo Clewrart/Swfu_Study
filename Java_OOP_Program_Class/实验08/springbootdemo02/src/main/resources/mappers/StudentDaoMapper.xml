@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- mapper:根标签，namespace：命名空间，需要保证命名空间唯一 -->
+<mapper namespace="com.example.demo.dao.StudentDao">
+
+    <!-- 结果集映射 -->
+    <resultMap id="StudentMap" type="com.example.demo.entity.Student">
+        <result property="id" column="id" jdbcType="BIGINT"/>
+        <result property="classId" column="class_id" jdbcType="BIGINT"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="gender" column="gender" jdbcType="VARCHAR"/>
+        <result property="score" column="score" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <!--查询所有学生记录 -->
+    <select id="queryStudentAll" resultMap="StudentMap">
+        SELECT * FROM students
+    </select>
+
+    <!--根据id查询学生记录-->
+    <select id="queryStudentByID" resultMap="StudentMap">
+        SELECT * FROM students
+        WHERE id = #{id}
+    </select>
+
+    <!--根据id更新学生记录 -->
+    <update id="updateStudent" parameterType="com.example.demo.entity.Student">
+    UPDATE students
+    <trim prefix="SET" suffixOverrides=",">
+        <if test="classId != null">class_id = #{classId},</if>
+        <if test ="name != null">name = #{name},</if>
+        <if test ="gender != null">gender=#{gender},</if>
+        <if test="score !=null">score=#{score},</if>
+    </trim>
+        WHERE(id= #{id});
+</update>
+    <!-- 在数据表中添加一条新的学生记录 -->
+    <insert id="insertStudent" useGeneratedKeys="true"
+            keyColumn="id" keyProperty="id"
+            parameterType="com.example.demo.entity.Student">
+        INSERT INTO students(
+            class_id,name,gender,score
+    )
+    VALUES
+    (
+        #{classId},#{name},#{gender},#{score}
+    );
+    </insert>
+
+    <!--根据id删除学生记录-->
+    <delete id="deleteStudentById" parameterType="Long">
+        DELETE FROM students WHERE id=#{id}
+    </delete>
+
+    <!--uu批量删-->
+    <delete id="deleteArea">
+        DELETE FROM students
+        WHERE id BETWEEN #{startId} AND #{endId}
+    </delete>
+
+
+
+</mapper>

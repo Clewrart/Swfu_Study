@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.example.dao.StudentDao">
+    <select id="queryStudentByID" resultType="org.example.entity.Student">
+        SELECT * FROM students WHERE id = #{id}
+    </select>
+
+    <select id="queryStudentAll" resultType="org.example.entity.Student">
+        SELECT * FROM Students
+    </select>
+
+    <insert id="insertStudent" useGeneratedKeys="true" keyColumn="id" keyProperty="id"
+            parameterType="org.example.entity.Student">
+        INSERT INTO students(
+            class_id,name,gender,score
+        )
+        VALUES
+        (
+        #{classId},
+        #{name},
+        #{gender},
+        #{score}
+        );
+    </insert>
+
+    <update id="updateStudent" parameterType="org.example.entity.Student">
+        UPDATE students
+        <trim prefix="set" suffixOverrides=",">
+            <if test="classId!=null">class_id = #{classId},</if>
+            <if test="name!=null">name = #{name},</if>
+            <if test="gender!=null">gender = #{gender},</if>
+            <if test="score!=null">score = #{score},</if>
+        </trim>
+        WHERE
+        (id = #{id});
+    </update>
+    <delete id="deleteStudentById" parameterType="Long">
+        DELETE FROM students WHERE id=#{id}
+    </delete>
+</mapper>
