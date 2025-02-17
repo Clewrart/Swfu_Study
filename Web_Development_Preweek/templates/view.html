@@ -1,0 +1,273 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="" http-equiv="keywords">
+    <meta name="description" content="">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>文章-{{ post.title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="../static/css/index.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/index2.css" type="text/css">
+
+
+    <script type="text/javascript" src="../static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="../static/js/public.js"></script><!-- 菜单js等-->
+    <!-- 时间选择js -->
+    <script type="text/javascript" src="../static/js/laydate.js"></script>
+</head>
+<body>
+<!--头部-->
+<div class="topbox bg">
+    <div class="wid_main fix">
+        <div class="logo l"><img src="../static/images/logo.png" alt="logo" /><a href="{{ url_for('search')}}" class="btn btn-warning btn-lg rounded-pill" style="margin-left: 400px">点击进行全局搜索</a></div>
+    </div>
+</div>
+<!-- top end -->
+
+<!-- 主体内容框 -->
+<div class="contentbox wid_main bora_5">
+    <div class="content">
+
+        <!-- 导航栏部分 -->
+        <div class="top_nav bg bora_5 ovh" style="display: flex;align-items: center;justify-content: center;margin-top:10px">
+            <ul class="fix" style="display: flex;align-items: center;justify-content: center">
+                <li class="cur">
+                    <a href="{{ url_for('index') }}">首 页</a>
+                </li>
+                <li>
+                    <a href="#" class="category-btn" data-category="科技">科技</a>
+                </li>
+                <li>
+                    <a href="#" class="category-btn" data-category="教育">教育</a>
+                </li>
+                <li>
+                    <a href="#" class="category-btn" data-category="生活">生活</a>
+                </li>
+                {% if not usernow %}
+                <li>
+                    <a href="{{ url_for('login') }}">写作</a>
+                </li>
+                {% else %}
+                <li>
+                    <a href="{{ url_for('issue') }}">写作</a>
+                </li>
+                {% endif %}
+                <li>
+                    {% if not usernow %}
+                    <a  href="{{ url_for('login') }}">登录/注册</a>
+                    {% else %}
+                    <li>
+                        <a style="color: aquamarine;" href="{{ url_for('manage') }}">管理文章</a>
+                    </li>
+                    <li>
+                        <a href="{{ url_for('logout') }}" style="background-color:salmon;font-size: larger;">退出{{usernow}}</a>
+                    </li>
+                    {% endif %}
+                </li>
+            </ul>
+        </div>
+
+    <div class="container mt-5">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="text-center"><b>{{ post.title }}</b></h3>
+                {% if post.image %}
+<br>
+                <h5 class="card-subtitle mb-2 text-center">作者: {{ post.username }} - 时间: {{ post.issue_date }}-访问量: {{ post.views }}</h5>
+                <br>
+                <p class="card-text">{{ post.content | safe }}</p>
+                <div class="mb-4">
+        <img src="data:image/jpeg;base64,{{ post.image }}" class="img-fluid" alt="主图">
+    </div>
+    {% else %}
+    <p>没有上传主图。</p>
+    {% endif %}
+                 {% for attachment in attachments %}
+                        <a href="{{ url_for('download', attachment_id=attachment.id) }}">下载 {{ attachment.file_name }}
+    </a><br> {% endfor %}
+            </div>
+        </div>
+
+
+
+<div class="comments-section">
+    <h3>评论</h3>
+    <div id="comments-list">
+        {% if comments %}
+        {% for comment in comments %}
+            <!-- 顶级评论卡片 -->
+            <div class="card mb-3" style="margin-left: 0px;">
+                <div class="card-body">
+                    <p><strong>{{ comment.username }}</strong> - {{ comment.created_time }}</p>
+                    <p>{{ comment.content }}</p>
+                    <button class="btn btn-primary btn-sm reply-btn" data-id="{{ comment.id }}">回复</button>
+                    {% if usernow == comment.username or usernow == 'root' %}
+                        <button class="btn btn-danger btn-sm delete-comment" data-id="{{ comment.id }}">删除</button>
+                    {% endif %}
+                </div>
+
+                <!-- 回复部分 -->
+                <div class="card-body">
+                    {% for reply in comment.replies %}
+                        <div class="card mb-3" style="margin-left: 30px;">
+                            <div class="card-body">
+                                <p><strong>{{ reply.username }}</strong> - {{ reply.created_time }}</p>
+                                <p>{{ reply.content }}</p>
+                                <button class="btn btn-primary btn-sm reply-btn" data-id="{{ reply.id }}">回复</button>
+                                {% if usernow == reply.username or usernow == 'root' %}
+                                    <button class="btn btn-danger btn-sm delete-comment" data-id="{{ reply.id }}">删除</button>
+                                {% endif %}
+                            </div>
+
+                            <!-- 回复的回复部分 -->
+                            <div class="card-body">
+                                {% for sub_reply in reply.replies %}
+                                    <div class="card mb-3" style="margin-left: 60px;">
+                                        <div class="card-body">
+                                            <p><strong>{{ sub_reply.username }}</strong> - {{ sub_reply.created_time }}</p>
+                                            <p>{{ sub_reply.content }}</p>
+                                            {% if usernow == sub_reply.username or usernow == 'root' %}
+                                                <button class="btn btn-danger btn-sm delete-comment" data-id="{{ sub_reply.id }}">删除</button>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+        {% else %}
+        <p>暂无评论，快来抢沙发吧！</p>
+        {% endif %}
+    </div>
+    </div>
+    </div>
+</div>
+    <!-- 评论表单 -->
+    <form id="comment-form">
+        <textarea class="form-control" id="comment-content" placeholder="写下你的评论..." required></textarea>
+        <input type="hidden" id="parent-id" value="0">
+        <button type="submit" class="btn btn-primary mt-3">发表评论</button>
+    </form>
+</div>
+<script>
+$(document).ready(function() {
+    const postId = "{{ post.id }}";
+
+    //加载
+    function loadComments() {
+        $.get(`/get_comments/${postId}`, function(data) {
+            let commentsHtml = '';
+            data.forEach(comment => {
+                commentsHtml += `
+                    <div class="card mb-3" style="margin-left: 0px;">
+                        <div class="card-body">
+                            <p><strong>${comment.username}</strong> - ${comment.created_at}</p>
+                            <p>${comment.content}</p>
+                            <button class="btn btn-success reply-btn" data-id="${comment.id}">回复</button>
+                            ${comment.username === "{{ usernow }}" || "{{ usernow }}" === 'root' ? `<button class="btn btn-danger delete-comment" data-id="${comment.id}">删除</button>` : ''}
+                        </div>
+
+                        <!-- 回复 -->
+                        <div class="card-body">
+                            ${comment.replies.map(reply => `
+                                <div class="card mb-3" style="margin-left: 30px;">
+                                    <div class="card-body">
+                                        <p><strong>${reply.username}</strong> - ${reply.created_at}</p>
+                                        <p>${reply.content}</p>
+                                        <button class="btn btn-success reply-btn" data-id="${reply.id}">回复</button>
+                                        ${reply.username === "{{ usernow }}" || "{{ usernow }}" === 'root' ? `<button class="btn btn-danger delete-comment" data-id="${reply.id}">删除</button>` : ''}
+                                    </div>
+
+                                    <!-- 回复的回复 -->
+                                    <div class="card-body">
+                                        ${reply.replies.map(sub_reply => `
+                                            <div class="card mb-3" style="margin-left: 60px;">
+                                                <div class="card-body">
+                                                    <p><strong>${sub_reply.username}</strong> - ${sub_reply.created_at}</p>
+                                                    <p>${sub_reply.content}</p>
+                                                    ${sub_reply.username === "{{ usernow }}" || "{{ usernow }}" === 'root' ? `<button class="btn btn-danger delete-comment" data-id="${sub_reply.id}">删除</button>` : ''}
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            if (!commentsHtml) {
+                commentsHtml = '<p>暂无评论，快来抢沙发吧！</p>';
+            }
+            $('#comments-list').html(commentsHtml);
+        }).fail(function() {
+            alert("加载评论失败，请刷新页面重试！");
+        });
+    }
+
+    //提交评论
+    $('#comment-form').submit(function(event) {
+        event.preventDefault();
+        const content = $('#comment-content').val().trim();
+        const parentId = $('#parent-id').val();
+        if (!content) {
+            alert("评论内容不能为空！");
+            return;
+        }
+        $.post('/add_comment', { post_id: postId, content: content, parent_id: parentId }, function(response) {
+            if (response.success) {
+                $('#comment-content').val('');
+                loadComments();
+            } else {
+                alert(response.message);
+            }
+        });
+    });
+
+    //回复点击
+    $(document).on('click', '.reply-btn', function() {
+        const commentId = $(this).data('id');
+        $('#parent-id').val(commentId);  //设置parent_id为回复的评论ID
+        $('#comment-content').focus();
+    });
+
+    //删除点击
+    $(document).on('click', '.delete-comment', function() {
+        const commentId = $(this).data('id');
+        if (confirm('确定删除这条评论吗？')) {
+            $.post('/delete_comment', { comment_id: commentId }, function(response) {
+                if (response.success) {
+                    loadComments();
+                } else {
+                    alert(response.message);
+                }
+            });
+        }
+    });
+
+    loadComments();
+});
+
+
+$(document).ready(function () {
+    //导航，按钮时触发二级跳转
+    $(".category-btn").on("click", function () {
+        var category = $(this).data("category");
+        window.location.href = `/category.html?category=${encodeURIComponent(category)}&page=1`;
+    });
+});
+</script>
+
+
+</body>
+</html>

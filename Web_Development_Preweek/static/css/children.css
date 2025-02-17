@@ -1,0 +1,338 @@
+
+/*当前位置*/
+.zy_cur{ line-height: 30px; font-size: 14px; }
+.zy_cur a{ color: #333; }
+.zy_cur span{ color: #e0620d; }
+.zy_cur a:after{ content: " > "; }
+.zy_cur a:hover{ color: #005389; }
+
+/*子页内容框*/
+.zy_contentbox{ min-height: 580px; margin-top: 30px; padding:0 5px; }
+.zy_content{ margin-bottom: 50px; }
+
+/*左边栏*/
+.zy_left_con{ 
+	float: left; 
+	width: 260px;  
+	padding-bottom: 40px;
+	position: relative;
+}
+.zy_left_con b{
+	position: absolute;
+	top: 0;
+	right: -1px;
+	width: 1px;
+	height: 54px;
+	background-color: #fff;
+}
+.zy_left_con h2.tit{ 
+	font-size: 24px; 
+	font-weight: bold; 
+	color: #005389;
+	padding-bottom: 12px;
+	border-bottom: #005389 solid 1px;
+}
+/*nav*/
+.zy_twonav{
+	margin-bottom: 36px;
+}
+.zy_twonav ul li:first-child{
+	border-top:#ddd solid 1px;
+}
+.zy_twonav ul li{
+	height: 60px;
+	line-height: 60px;
+	border-bottom: #ddd solid 1px;
+	overflow: hidden;
+}
+.zy_twonav ul li.cur{
+	background-color: #eee;
+}
+.zy_twonav ul li a{
+	font-size:16px;
+	color:#333;
+	display: block;
+	padding:0 20px;
+	background-position: center right 90px;
+	transition: background-position .7s;
+}
+.zy_twonav ul li.cur a{
+	color:#005389;
+	font-weight: bold;
+	border-left: #005389 5px solid;
+}
+.zy_twonav ul li:hover{
+	background-color: #eee;
+}
+.zy_twonav ul li:hover a{
+	color:#005389;
+}
+/*contact*/
+.zy_left_con .contact h2{
+	margin-top: 50px;
+	border-bottom: #ddd solid 1px;
+}
+
+.zy_left_con .contact dl dd{
+	font-size:14px ;
+	color:#666;
+	line-height: 24px;
+	margin:10px 0;
+}
+.zy_left_con .contact dl dd img{
+	vertical-align: middle;
+	margin-top: -2px;
+	margin-right: 8px;
+}
+.zy_left_con .contact dl dd a{
+	display: inline-block;
+	width: 210px;
+	vertical-align:top;
+}
+
+/*右边内容栏*/
+.zy_right_con{ 
+	float: right; 
+	width: 910px; 
+	overflow: hidden;
+}
+/*当前标题*/
+.zy_right_con .zy_title{
+	border-bottom: #005389 solid 1px;
+	margin-bottom: 20px;
+}
+.zy_right_con .zy_title h2{
+	font-size:24px;
+	font-weight: bold;
+	color: #e0620d;
+	position: relative;
+	float: left;
+	padding-bottom: 12px;
+}
+.zy_right_con .zy_title h2 i{
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 100%;
+	height: 3px;
+	background-color: #e0620d;
+}
+
+/*领导班子*/
+.zy_leaderbox .pic{ border-bottom:#ddd solid 1px; padding:15px 20px; overflow: hidden; font-size: 0; margin-top: 16px; }
+.zy_leaderbox .pic h2{ display: inline-block;vertical-align: middle; width: 80px; font-size: 18px; color: #666; font-weight: bold; }
+.zy_leaderbox .pic ul{ display: inline-block;vertical-align: middle; width: 780px;margin-left: 5px; }
+.zy_leaderbox .pic ul li{ display: inline-block; width: 140px; margin:0 24px; vertical-align: top;}
+.zy_leaderbox .pic ul li i{display: block; width: 140px; height: 195px; overflow: hidden; }
+.zy_leaderbox .pic ul li img{ display: block; width: 100%; height: 100%; transform: scale(1,1); transition: all .3s; }
+.zy_leaderbox .pic:first-child{ margin-top: 0; }
+.zy_leaderbox .pic:first-child ul li{ width: 150px; }
+.zy_leaderbox .pic:first-child ul li i{display: block; width: 150px; height: 210px;  }
+.zy_leaderbox .pic ul li p{ font-size: 14px; color: #666; text-align: center;  padding-top: 5px;}
+.zy_leaderbox .pic ul li p span{ display: block; }
+.zy_leaderbox .pic ul li:hover p{ color: #005389; }
+.zy_leaderbox .pic ul li:hover img{ transform: scale(1.1,1.1); }
+
+/*领导详情*/
+/*董监高人员详情*/
+/*分享样式*/
+.zy_share{
+	border-top: #ddd solid 1px;
+	position: relative;
+	padding-top: 12px;
+	margin-top: 50px;
+}
+.zy_share h2{
+	float: left;
+}
+.zy_share h2 p{
+	font-size: 16px;
+	color: #005389;
+	font-weight: bold;
+	line-height: 32px;
+}
+.zy_share h2 p a{
+	color: #666;
+	display: inline-block;
+	font-weight: normal;
+	max-width: 500px;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	vertical-align: middle;
+	margin-top:-3px;
+}
+.zy_share h2 p a:hover{
+	color: #005389;
+}
+
+.zy_share .bdsharebuttonbox{
+	float: right;
+	padding-top: 26px;
+}
+.zy_share .bdsharebuttonbox span {
+	position: absolute;
+	right: 0;
+	top:-2px;
+	z-index: 3;
+	width: 90px;
+	border-top:#005389 solid 3px;
+	text-align:right;
+	color: #666;
+	padding-top: 14px;
+}
+.zy_share .bdsharebuttonbox a{
+	margin-right:0;
+	margin-left: 6px;
+}
+.zy_leader_xq{ margin-top: 30px;}
+.zy_leader_xq .pic{ overflow: hidden; }
+.zy_leader_xq .pic i{float: left; width: 210px; height: 292px; margin-right: 30px;}
+.zy_leader_xq .pic i img{display: block; width: 210px; height: 292px;}
+.zy_leader_xq .pic dl{ float: left; width: 640px;}
+.zy_leader_xq .pic dl dt{ font-size: 24px;color: #666; line-height: 40px; margin-top: 12px; margin-bottom: 20px; }
+.zy_leader_xq .pic dl dt b{border-bottom: #666 solid 2px; display: inline-block;}
+.zy_leader_xq .pic dl dt span{ font-size: 16px; }
+.zy_leader_xq .pic dl dt span:before{ content: " / "; }
+.zy_leader_xq .pic dl dd{ font-size: 16px; color: #666; line-height: 30px; }
+.zy_leader_xq .pic dl h3{ font-size: 16px; color: #666; font-weight: bold; margin:20px 0 8px;}
+.zy_leader_xq .txt{ margin-top: 20px;}
+.zy_leader_xq .txt h3{ font-size:18px; color: #005389; border-bottom: #ddd solid 1px; }
+.zy_leader_xq .txt h3 b{position: relative; line-height: 40px; display: inline-block;}
+.zy_leader_xq .txt h3 i{position: absolute; left: 0; bottom: -2px; width:100%; height: 3px; background-color: #005389; }
+.zy_leader_xq .txt .text{ margin-top: 14px;min-height: 210px; 
+	font-size: 16px; color: #666; line-height: 36px;
+}
+
+/*执法人员*/
+.search_people{ border:#ddd solid 1px; margin-left: 40px; margin-top: 40px; }
+.search_people:hover{ border-color: #005389; }
+
+.zy_peoplebox ul li{ display: inline-block; width: 210px; margin:40px 40px 0; vertical-align: top; }
+.zy_peoplebox ul li i{display: block; width: 160px; height: 224px; overflow: hidden; margin:0 auto; }
+.zy_peoplebox ul li img{ display: block; width: 100%; height: 100%; transform: scale(1,1); transition: all .3s; }
+.zy_peoplebox ul li p{ font-size: 14px; color: #666; text-align: center;  padding-top: 5px; line-height: 20px;}
+.zy_peoplebox ul li p span{ display: block; margin-top: 3px; }
+.zy_peoplebox ul li:hover p{ color: #005389; }
+.zy_peoplebox ul li:hover img{ transform: scale(1.1,1.1); }
+
+/***翻页样式**/
+.fanye{
+    text-align:center; 
+    border-top: #ddd solid 1px;
+    margin-top: 30px;
+    padding-top: 30px;
+    line-height: 32px; 
+    font-size:14px; 
+    color:#666; 
+}
+.fanye a{ 
+    border:#ddd solid 1px; 
+    padding:0px 15px; 
+    color:#666; 
+    height: 32px;
+    display: inline-block; 
+    border-radius: 3px;
+    margin:0 1px;
+    text-align: center;
+}
+.fanye div{ display: inline-block; }
+.fanye div a{ 
+    margin: 0 2px;
+    width: 32px;
+    padding:0;
+}
+.fanye div .current{ 
+    color:#fff; 
+    background-color:#005389; 
+    border:#005389 solid 1px;
+}
+.fanye a:hover{
+    color:#fff; 
+    background-color:#005389; 
+    border:#005389 solid 1px;
+}
+.fanye p{ display: inline-block; }
+.fanye p span{display: inline-block; margin:0 5px;}
+.fanye p input {border-radius: 3px; text-align: center; font-size: 14px; color: #666; background-color: #ddd; height: 32px; padding:0 15px;}
+.fanye p span input{ width: 32px; border:#ddd solid 1px; background: none; padding: 0; margin:0 5px; }
+
+/*暂无数据*/
+.search_nodata{ text-align: center; color: #666; font-size: 14px; margin-top: 50px; }
+.search_nodata img{ width: 140px; margin-bottom: 20px; }
+
+/*其他通用展示页*/
+.zy_conbox{ width: 1100px; margin:0 auto; }
+.other_page h1{ font-size: 32px; color: #005389; text-align: center; padding: 24px 0; }
+
+/*搜索结果*/
+.news_list ul li{ line-height: 42px; }
+.news_list ul li a{ color: #333; transition: all .3s; display: inline-block;vertical-align: middle; max-width: 900px; 
+	white-space: nowrap; text-overflow: ellipsis; overflow: hidden; 
+}
+.news_list ul li b{ color: #666; display:inline-block; margin-right: 7px;vertical-align: middle; }
+.news_list ul li span{ float: right; color: #999;font-size: 14px; }
+.news_list ul li a:hover{ color: #005389; text-indent: .3em; text-decoration: underline; font-weight: bold;}
+.news_list ul li:hover b{ color: #005389; }
+
+/*联系我们*/
+.other_page .txt{ line-height: 36px; color: #454545; }
+
+/*执法动态*/
+.zy_listbox ul li a{ max-width: 750px; }
+
+/*新闻详情*/
+.zy_newsxq .xq_tit{
+	padding: 20px 0 30px;
+	text-align: center; 
+	margin-bottom: 30px;
+}
+.zy_newsxq .xq_tit h1{
+	font-size:32px;
+	color: #333;
+	line-height: 48px;
+	width: 760px;
+	margin:0 auto;
+}
+.zy_newsxq .xq_tit p{
+	font-size:14px;
+	color: #999;
+	margin-top:30px;
+}
+.zy_newsxq .xq_tit p span{
+	margin-right:20px;
+}
+.zy_newsxq .txt{
+	font-size:16px;
+	color: #666;
+	line-height: 36px;
+}
+.zy_newsxq .txt *{
+	margin:24px 0;
+}
+.zy_newsxq .txt img{
+	display: block;
+	max-width: 100%;
+	margin:0 auto;
+}
+
+/*权责清单*/
+.zy_order_box{ width: 1100px; }
+.zy_order_list table{ width: 100%; font-size: 14px; color: #333; }
+.zy_order_list table thead{ background-color: #fafafa; line-height:58px; }
+.zy_order_list table thead th{ border:#ddd solid 1px; }
+.zy_order_list table td{border:#ddd solid 1px; padding:10px;}
+
+/*内设机构*/
+.zy_jigou_xq{ margin-top: 50px; }
+.zy_jigou_xq table td{ border:#ddd solid 1px; font-size: 14px; color: #333; padding:15px 10px; line-height:24px; background-color: #fafafa;}
+
+/*信息公开*/
+.zy_public_box .tit{ margin:30px 0 20px; }
+.zy_public_box .tit a{ display: inline-block; padding: 0 20px; height: 40px; line-height: 40px; color: #005389; border-radius: 5px; 
+	border:#005389 solid 1px; margin-right:10px;
+}
+.zy_public_box .tit a.cur{ background-color: #005389; color: #fff; }
+.zy_table_list{ width: 100%; border:#ddd solid 1px; margin-top: 10px; font-size: 14px; color: #333; }
+.zy_table_list th{ border:#ddd solid 1px; background-color: #fafafa; height: 48px; }
+.zy_table_list tr td{ border:#ddd solid 1px; padding:5px; height: 48px; text-align: center; }

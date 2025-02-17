@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="" http-equiv="keywords">
+    <meta name="description" content="">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>全局搜索</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="../static/css/index.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/index2.css" type="text/css">
+
+
+    <script type="text/javascript" src="../static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="../static/js/public.js"></script>
+    <!-- 菜单js等-->
+    <!-- 时间选择js -->
+    <script type="text/javascript" src="../static/js/laydate.js"></script>
+</head>
+
+<body>
+    <!--头部-->
+    <div class="topbox bg">
+        <div class="wid_main fix">
+            <div class="logo l"><img src="../static/images/logo.png" alt="logo" />
+                <a href="{{ url_for('search')}}" class="btn btn-info btn-lg rounded-pill" style="margin-left: 400px">点击清空搜索结果</a>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- top end -->
+
+    <!-- 主体内容框 -->
+    <div class="contentbox wid_main bora_5">
+        <div class="content">
+
+            <!-- 导航栏部分 -->
+            <div class="top_nav bg bora_5 ovh" style="display: flex;align-items: center;justify-content: center;margin-top:10px">
+                <ul class="fix" style="display: flex;align-items: center;justify-content: center">
+                    <li class="cur">
+                        <a href="{{ url_for('index') }}">首 页</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="科技">科技</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="教育">教育</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="生活">生活</a>
+                    </li>
+                    {% if not usernow %}
+                    <li>
+                        <a href="{{ url_for('login') }}">写作</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{{ url_for('issue') }}">写作</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        {% if not usernow %}
+                        <a href="{{ url_for('login') }}">登录/注册</a> {% else %}
+                        <li>
+                            <a style="color: aquamarine;" href="{{ url_for('manage') }}">管理文章</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('logout') }}" style="background-color:salmon;font-size: larger;">退出{{usernow}}</a>
+                        </li>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+
+
+            <h2 class="text-center" style="margin-top: 10px">全局搜索</h2>
+            <div class="container mt-5">
+
+                <form method="GET" action="{{ url_for('search') }}">
+
+                    <div class="form-group" style="display:inline;">
+                        <input type="text" class="form-control" name="search" placeholder="输入文章标题进行搜索" value="{{ request.args.get('search', '') }}">
+                        <div class="d-flex justify-content-center"><button type="submit" class="btn btn-primary mt-3 w-100">搜索</button></div>
+                    </div>
+                </form>
+
+                <div class="container mt-5">
+                    {% if posts %}
+                    <div class="row">
+                        {% for post in posts %}
+                        <div class="col-12 mb-4">
+                            <div class="card">
+                                <div class="card-body d-flex">
+                                    <!-- 左侧图片 -->
+                                    <div class="me-4">
+                                        <img src="data:image/jpeg;base64,{{ post.image }}" class="img-fluid" style="max-width: 150px;" alt="主图">
+                                    </div>
+                                    <!-- 右侧内容 -->
+                                    <div class="flex-grow-1">
+                                        <h5 class="card-title">{{ post.title }}</h5>
+                                        <p class="card-text">发布时间: {{ post.issue_date }}</p>
+                                        <p class="card-text">作者: {{ post.username }}</p>
+                                        <div class="d-flex justify-content-start">
+                                            <button class="btn btn-secondary me-4 view-btn" data-id="{{ post.id }}">查看</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% else %}
+                    <p class="text-xxl-center">当前搜索无匹配内容！请开始搜索！</p>
+                    {% endif %}
+                </div>
+
+
+                <!--分页-->
+                <ul class="pagination">
+                    {% if current_page > 1 %}
+                    <li class="page-item">
+                        <a class="page-link" href="{{ url_for('search', page=current_page - 1, search=search) }}">上一页</a>
+                    </li>
+                    {% endif %} {% for page_num in range(1, total_pages + 1) %}
+                    <li class="page-item {% if page_num == current_page %}active{% endif %}">
+                        <a class="page-link" href="{{ url_for('search', page=page_num, search=search) }}">{{ page_num }}</a>
+                    </li>
+                    {% endfor %} {% if current_page
+                    < total_pages %} <li class="page-item">
+                        <a class="page-link" href="{{ url_for('search', page=current_page + 1, search=search) }}">下一页</a>
+                        </li>
+                        {% endif %}
+                </ul>
+            </div>
+        </div>
+        <script>
+            $(document).ready(function() {
+                //查看
+                $(".view-btn").click(function() {
+                    const postId = $(this).data("id");
+                    window.location.href = "{{ url_for('view_post') }}?post_id=" + postId;
+                });
+            });
+
+            //导航标识，按钮时触发二级跳转
+            $(".category-btn").on("click", function() {
+                var category = $(this).data("category"); //获取分类
+                window.location.href = `/category.html?category=${encodeURIComponent(category)}&page=1`; //传递当前分类和第一页
+            });
+        </script>
+    </div>
+    </div>
+</body>
+
+</html>

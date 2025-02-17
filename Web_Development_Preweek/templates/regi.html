@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="" http-equiv="keywords">
+    <meta name="description" content="">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>用户注册</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="../static/css/index.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/index2.css" type="text/css">
+
+
+    <script type="text/javascript" src="../static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="../static/js/public.js"></script>
+    <!-- 菜单js等-->
+    <!-- 时间选择js -->
+    <script type="text/javascript" src="../static/js/laydate.js"></script>
+</head>
+
+<body>
+    <!--头部-->
+    <div class="topbox bg">
+        <div class="wid_main fix">
+            <div class="logo l"><img src="../static/images/logo.png" alt="logo" /><a href="{{ url_for('search')}}" class="btn btn-warning btn-lg rounded-pill" style="margin-left: 400px">点击进行全局搜索</a></div>
+        </div>
+    </div>
+    <!-- top end -->
+
+    <!-- 主体内容框 -->
+    <div class="contentbox wid_main bora_5">
+        <div class="content">
+
+            <!-- 导航栏部分 -->
+            <div class="top_nav bg bora_5 ovh" style="display: flex;align-items: center;justify-content: center;margin-top:10px">
+                <ul class="fix" style="display: flex;align-items: center;justify-content: center">
+                    <li class="cur">
+                        <a href="{{ url_for('index') }}">首 页</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="科技">科技</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="教育">教育</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="生活">生活</a>
+                    </li>
+                    {% if not usernow %}
+                    <li>
+                        <a href="{{ url_for('login') }}">写作</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{{ url_for('issue') }}">写作</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        {% if not usernow %}
+                        <a href="{{ url_for('login') }}">登录/注册</a> {% else %}
+                        <li>
+                            <a style="color: aquamarine;" href="{{ url_for('manage') }}">管理文章</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('logout') }}" style="background-color:salmon;font-size: larger;">退出{{usernow}}</a>
+                        </li>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div class="container">
+                <div class="login-form">
+                    <br>
+                    <h2 class="text-center">注册</h2>
+                    <p style="text-align: center;">请输入用户名、密码和电话号码完成注册</p>
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="username" class="form-label">设定用户名</label>
+                            <input type="text" class="form-control" id="username" name="username" placeholder="请输入用户名">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label">设定密码</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">确认密码</label>
+                            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="请再次输入密码">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tel" class="form-label">设定电话</label>
+                            <input type="tel" class="form-control" id="tel" name="tel" placeholder="请输入电话号码">
+                        </div>
+                        <button type="submit" class="btn btn-warning w-100">注册</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#registerForm').submit(function(e) {
+                e.preventDefault(); // 阻止表单的默认提交行为
+                var formData = {
+                    username: $('input[name="username"]').val(),
+                    password: $('input[name="password"]').val(),
+                    tel: $('input[name="tel"]').val()
+                };
+
+                $.ajax({
+                    url: '/regi_submit/',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(formData),
+                    dataType: 'json', // 期待的返回格式为JSON
+                    success: function(response) {
+                        if (response.success) {
+                            alert('注册成功！');
+                            window.location.href = '/login';
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function() {
+                        alert('服务器错误，请稍后再试');
+                    }
+                });
+            });
+        });
+        //导航标识，按钮时触发二级跳转
+        $(".category-btn").on("click", function() {
+            var category = $(this).data("category"); // 获取分类
+            window.location.href = `/category.html?category=${encodeURIComponent(category)}&page=1`; //传递当前分类和第一页
+        });
+    </script>
+
+</body>
+
+</html>

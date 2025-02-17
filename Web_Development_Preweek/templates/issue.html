@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="" http-equiv="keywords">
+    <meta name="description" content="">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>{{usernow}}正在写作</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="../static/css/index.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/index2.css" type="text/css">
+
+
+    <script type="text/javascript" src="../static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="../static/js/public.js"></script>
+    <!-- 菜单js等-->
+    <!-- 时间选择js -->
+    <script type="text/javascript" src="../static/js/laydate.js"></script>
+</head>
+
+<body>
+    <!--头部-->
+    <div class="topbox bg">
+        <div class="wid_main fix">
+            <div class="logo l"><img src="../static/images/logo.png" alt="logo" /><a href="{{ url_for('search')}}" class="btn btn-warning btn-lg rounded-pill" style="margin-left: 400px">点击进行全局搜索</a></div>
+        </div>
+    </div>
+    <!-- top end -->
+
+    <!-- 主体内容框 -->
+    <div class="contentbox wid_main bora_5">
+        <div class="content">
+
+            <!-- 导航栏部分 -->
+            <div class="top_nav bg bora_5 ovh" style="display: flex;align-items: center;justify-content: center;margin-top:10px">
+                <ul class="fix" style="display: flex;align-items: center;justify-content: center">
+                    <li class="cur">
+                        <a href="{{ url_for('index') }}">首 页</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="科技">科技</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="教育">教育</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="生活">生活</a>
+                    </li>
+                    {% if not usernow %}
+                    <li>
+                        <a href="{{ url_for('login') }}">写作</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{{ url_for('issue') }}">写作</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        {% if not usernow %}
+                        <a href="{{ url_for('login') }}">登录/注册</a> {% else %}
+                        <li>
+                            <a style="color: aquamarine;" href="{{ url_for('manage') }}">管理文章</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('logout') }}" style="background-color:salmon;font-size: larger;">退出{{usernow}}</a>
+                        </li>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="container mt-5">
+                <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+                <h2 class="text-center" style="margin-top: 10px">文章编辑</h2>
+                <form id="article-form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label>作者: </label>
+                        <input type="text" class="form-control" readonly="readonly" name="username" value="{{ usernow }}">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label>分类: </label>
+                        <select class="form-control" name="category">
+                <option value="科技">科技</option>
+                <option value="生活">生活</option>
+                <option value="教育">教育</option>
+            </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>标题: </label>
+                        <input type="text" class="form-control" name="title" placeholder="请输入标题">
+                    </div>
+
+                    <div class="form-group">
+                        <label>内容: </label>
+                        <div id="editor" style="height: 300px;background-color: antiquewhite;"></div>
+                        <input type="hidden" name="content">
+                    </div>
+
+                    <div class="form-group">
+                        <label>上传主图: </label>
+                        <input type="file" class="form-control" id="image-upload" name="image">
+                    </div>
+
+                    <div class="form-group">
+                        <label>上传附件: </label>
+                        <input type="file" class="form-control" id="file-upload" name="files[]" multiple>
+                        <ul id="file-list" style="margin-top: 10px;"></ul>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary mt-3">发表</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+    <script>
+        // 初始化 Quill 编辑器
+        var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+
+        //文件选择
+        $('#file-upload').on('change', function() {
+            var files = $('#file-upload')[0].files;
+            var fileList = $('#file-list');
+            fileList.empty();
+
+            if (files.length > 0) {
+                //选中的文件
+                for (var i = 0; i < files.length; i++) {
+                    var file = files[i];
+                    var listItem = $('<li></li>').text(file.name);
+                    fileList.append(listItem);
+                }
+            } else {
+                fileList.append('<li>没有选择文件</li>');
+            }
+        });
+
+        // 处理表单提交事件
+        $('#article-form').on('submit', function(event) {
+            event.preventDefault();
+
+            var content = quill.root.innerHTML;
+            $('input[name="content"]').val(content);
+            var formData = new FormData(this);
+            var post_id = $('input[name="post_id"]').val();
+            formData.append('post_id', post_id);
+
+            var imageFile = $('#image-upload')[0].files[0];
+
+            if (imageFile) {
+                //使用 FileReader 转换图像为 Base64
+                var reader = new FileReader();
+                reader.onloadend = function() {
+                    var imageBase64 = reader.result;
+                    formData.append('image', imageBase64);
+                    submitFormData(formData);
+                };
+                reader.readAsDataURL(imageFile);
+            } else {
+                submitFormData(formData);
+            }
+        });
+
+        //处理文件上传
+        $('#file-upload').on('change', function() {
+            var files = $('#file-upload')[0].files;
+            if (files.length > 0) {
+                //把附件添加到 formData
+                for (var i = 0; i < files.length; i++) {
+                    formData.append('files[]', files[i]);
+                }
+            }
+        });
+
+        function submitFormData(formData) {
+            $.ajax({
+                url: '/issue/',
+                type: 'POST',
+                dataType: 'json',
+                processData: false,
+                contentType: false,
+                data: formData,
+                success: function(response) {
+                    if (response.status === 'success') {
+                        alert(response.message);
+                        window.location.href = '/manage';
+                    } else {
+                        alert(response.message);
+                    }
+                },
+                error: function() {
+                    alert('提交失败');
+                }
+            });
+        }
+
+
+        //导航标识，按钮时触发二级跳转
+        $(".category-btn").on("click", function() {
+            var category = $(this).data("category"); // 获取分类
+            window.location.href = `/category.html?category=${encodeURIComponent(category)}&page=1`; //传递当前分类和第一页
+        });
+    </script>
+
+</body>
+
+</html>

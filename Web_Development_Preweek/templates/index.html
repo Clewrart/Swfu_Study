@@ -1,0 +1,212 @@
+﻿<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="" http-equiv="keywords">
+    <meta name="description" content="">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>首页</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="../static/css/index.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/index2.css" type="text/css">
+
+
+    <script type="text/javascript" src="../static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="../static/js/public.js"></script>
+    <!-- 菜单js等-->
+    <!-- 时间选择js -->
+    <script type="text/javascript" src="../static/js/laydate.js"></script>
+</head>
+
+<body>
+    <!--头部-->
+    <div class="topbox bg">
+        <div class="wid_main fix">
+            <div class="logo l"><img src="../static/images/logo.png" alt="logo" />
+                <a href="{{ url_for('search')}}" class="btn btn-warning btn-lg rounded-pill" style="margin-left: 400px">点击进行全局搜索</a>
+            </div>
+
+        </div>
+
+    </div>
+    <!-- top end -->
+
+    <!-- 主体内容框 -->
+    <div class="contentbox wid_main bora_5">
+        <div class="content">
+
+            <!-- 导航栏部分 -->
+            <div class="top_nav bg bora_5 ovh" style="display: flex;align-items: center;justify-content: center;margin-top:10px">
+                <ul class="fix" style="display: flex;align-items: center;justify-content: center">
+                    <li class="cur">
+                        <a href="{{ url_for('index') }}">首 页</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="科技">科技</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="教育">教育</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="生活">生活</a>
+                    </li>
+                    {% if not usernow %}
+                    <li>
+                        <a href="{{ url_for('login') }}">写作</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{{ url_for('issue') }}">写作</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        {% if not usernow %}
+                        <a href="{{ url_for('login') }}">登录/注册</a> {% else %}
+                        <li>
+                            <a style="color: aquamarine;" href="{{ url_for('manage') }}">管理文章</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('logout') }}" style="background-color:salmon;font-size: larger;">退出{{usernow}}</a>
+                        </li>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+
+
+            <!-- 分类查看部分 -->
+            <div class="conbox" style="display: flex;align-items: center;justify-content: center;margin-top:30px">
+                <div class="slideTxtBox l fix">
+                    <div class="hd l">
+                        <ul>
+                            <li><a href="#" class="category-btn" data-category="科技"><i><img src="../static/images/icon_news01.png"></i><b>科技</b></a></li>
+                            <li><a href="#" class="category-btn" data-category="教育"><i><img src="../static/images/icon_news02.png"></i><b>教育</b></a></li>
+                            <li><a href="#" class="category-btn" data-category="生活"><i><img src="../static/images/icon_news03.png"></i><b>生活</b></a></li>
+                        </ul>
+                    </div>
+                    <div class="r box">
+                        <div class="bd" id="articles-container">
+                            <!-- 文章内容会动态加载在这里 -->
+                        </div>
+                    </div>
+                    <script type="text/javascript">
+                        jQuery(".slideTxtBox").slide({
+                            effect: "leftLoop",
+                            delayTime: 300
+                        });
+                    </script>
+                </div>
+            </div>
+
+            <!-- 专题轮播 -->
+            <div class="zhuanti_pic">
+                <div class="hd">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul>
+                        <li>
+                            <a><img src="../static/images/pic01.jpg" /></a>
+                        </li>
+                        <li>
+                            <a><img src="../static/images/pic01.jpg" /></a>
+                        </li>
+                    </ul>
+                </div>
+                <a class="prev" href="javascript:void(0)"></a>
+                <a class="next" href="javascript:void(0)"></a>
+                <script type="text/javascript">
+                    jQuery(".zhuanti_pic").slide({
+                        mainCell: ".bd ul",
+                        autoPlay: true,
+                        effect: "fade",
+                        mouseOverStop: false,
+                        interTime: 3000,
+                    });
+                </script>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            //导航--分类类标识联控，按钮时触发二级跳转
+            $(".category-btn").on("click", function() {
+                var category = $(this).data("category");
+                window.location.href = `/category.html?category=${encodeURIComponent(category)}&page=1`;
+            });
+        });
+
+        $(document).ready(function() {
+            var defaultCategory = "科技";
+            var defaultButton = $(".category-btn[data-category='" + defaultCategory + "']");
+
+            if (defaultButton.length) {
+                defaultButton.trigger("mouseover");
+            }
+        });
+        //触摸分类按钮时触发当前最新
+        $(".category-btn").on("mouseover", function() {
+            var category = $(this).data("category"); // 获取分类
+            $("#articles-container").html("<p>加载中...</p>");
+
+            $.ajax({
+                url: "/api/get_articles", // 请求API路由
+                type: "GET",
+                data: {
+                    category: category
+                }, // 请求参数，传递分类
+                success: function(response) {
+                    if (response.status === "success") {
+                        var articles = response.data;
+                        var html = "";
+
+                        if (articles.length > 0) {
+                            html += "<ul>";
+                            articles.forEach(function(article) {
+                                html += `
+                                <li>
+                                    <a href="javascript:void(0)" class="article-link" data-id="${article.id}">${article.title}</a>
+                                </li>
+                            `;
+                            });
+                            html += "</ul><br>";
+                        } else {
+                            html = "<p>该分类暂无文章。</p>";
+                        }
+
+                        $("#articles-container").html(html);
+                    } else {
+                        $("#articles-container").html("<p>加载失败，请稍后重试。</p>");
+                    }
+                },
+                error: function() {
+                    $("#articles-container").html("<p>网络错误，请稍后重试。</p>");
+                }
+            });
+        });
+
+        //查看
+        $(document).on("click", ".article-link", function() {
+            var articleId = $(this).data("id");
+            // 使用新窗口打开文章详情页面
+            var newWindow = window.open("/view_post?post_id=" + articleId, "_blank");
+            if (!newWindow) {
+                alert("无法打开新窗口，请检查浏览器设置。");
+            }
+        });
+    </script>
+</body>
+
+</html>

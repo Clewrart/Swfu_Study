@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta content="" http-equiv="keywords">
+    <meta name="description" content="">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title>{{ category }} 文章</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}">
+    <link rel="stylesheet" href="../static/css/index.css" type="text/css">
+    <link rel="stylesheet" href="../static/css/index2.css" type="text/css">
+
+
+    <script type="text/javascript" src="../static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../static/js/jquery.SuperSlide.2.1.1.js"></script>
+    <script type="text/javascript" src="../static/js/public.js"></script>
+    <!-- 菜单js等-->
+    <!-- 时间选择js -->
+    <script type="text/javascript" src="../static/js/laydate.js"></script>
+</head>
+
+<body>
+    <!--头部-->
+    <div class="topbox bg">
+        <div class="wid_main fix">
+            <div class="logo l"><img src="../static/images/logo.png" alt="logo" /><a href="{{ url_for('search')}}" class="btn btn-warning btn-lg rounded-pill" style="margin-left: 400px">点击进行全局搜索</a></div>
+
+        </div>
+    </div>
+    <!-- top end -->
+
+    <!-- 主体内容框 -->
+    <div class="contentbox wid_main bora_5">
+        <div class="content">
+
+            <!-- 导航栏部分 -->
+            <div class="top_nav bg bora_5 ovh" style="display: flex;align-items: center;justify-content: center;margin-top:10px">
+                <ul class="fix" style="display: flex;align-items: center;justify-content: center">
+                    <li class="cur">
+                        <a href="{{ url_for('index') }}">首 页</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="科技">科技</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="教育">教育</a>
+                    </li>
+                    <li>
+                        <a href="#" class="category-btn" data-category="生活">生活</a>
+                    </li>
+                    {% if not usernow %}
+                    <li>
+                        <a href="{{ url_for('login') }}">写作</a>
+                    </li>
+                    {% else %}
+                    <li>
+                        <a href="{{ url_for('issue') }}">写作</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        {% if not usernow %}
+                        <a href="{{ url_for('login') }}">登录/注册</a> {% else %}
+                        <li>
+                            <a style="color: aquamarine;" href="{{ url_for('manage') }}">管理文章</a>
+                        </li>
+                        <li>
+                            <a href="{{ url_for('logout') }}" style="background-color:salmon;font-size: larger;">退出{{usernow}}</a>
+                        </li>
+                        {% endif %}
+                    </li>
+                </ul>
+            </div>
+            <div class="container my-5">
+                <h2 class="text-center " style="margin:10px">分类: {{ category }}</h2>
+
+                <!-- 搜索框 -->
+                <div class="mb-4 text-center">
+                    <input type="text" id="search-input" class="form-control w-50 mx-auto" placeholder="搜索标题...">
+                </div>
+
+                <div class="row" id="articles-container">
+                    <!-- 文章内容卡片 -->
+                </div>
+
+                <div id="pagination" class="d-flex justify-content-center my-4">
+                    <!-- 分页按钮 -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            var category = "{{ category }}";
+            var page = "{{ page }}";
+            var searchQuery = "";
+
+            //加载文章
+            function loadArticles(page, searchQuery) {
+                $.ajax({
+                    url: "/api/get_articles",
+                    type: "GET",
+                    data: {
+                        category: category,
+                        page: page,
+                        search: searchQuery
+                    },
+                    success: function(response) {
+                        if (response.status === "success") {
+                            var articles = response.data;
+                            var html = "";
+
+                            //卡片
+                            if (articles.length > 0) {
+                                articles.forEach(function(article) {
+                                    html += `
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card" style="width: 18rem;">
+                                            <img src="data:image/jpeg;base64,${article.image}" class="card-img-top" alt="${article.title}">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${article.title}</h5>
+                                                <p class="card-text"><strong>作者:</strong> ${article.username}</p>
+                                                <p class="card-text"><strong>时间:</strong> ${article.issue_date}</p>
+                                                <a href="/view_post?post_id=${article.id}" class="btn btn-primary">查看文章</a>
+                                            </div>
+                                        </div>
+                                    </div>`;
+                                });
+                            } else {
+                                html = "<p>该分类暂无文章。</p>";
+                            }
+                            $("#articles-container").html(html);
+
+                            //分页
+                            var paginationHtml = '<ul class="pagination">';
+
+                            //添加上一页俺妞
+                            if (page > 1) {
+                                paginationHtml += `
+                                <li class="page-item">
+                                    <a href="#" class="page-link" data-page="${page - 1}">上一页</a>
+                                </li>`;
+                            } else {
+                                paginationHtml += `
+                                <li class="page-item disabled">
+                                    <span class="page-link">上一页</span>
+                                </li>`;
+                            }
+
+                            //添加数字页码
+                            for (var i = 1; i <= response.total_pages; i++) {
+                                paginationHtml += `
+                                <li class="page-item ${i == page ? 'active' : ''}">
+                                    <a href="#" class="page-link" data-page="${i}">${i}</a>
+                                </li>`;
+                            }
+
+                            //下一页俺妞
+                            if (page < response.total_pages) {
+                                paginationHtml += `
+                                <li class="page-item">
+                                    <a href="#" class="page-link" data-page="${page + 1}">下一页</a>
+                                </li>`;
+                            } else {
+                                paginationHtml += `
+                                <li class="page-item disabled">
+                                    <span class="page-link">下一页</span>
+                                </li>`;
+                            }
+
+                            paginationHtml += '</ul>';
+                            $("#pagination").html(paginationHtml);
+                        } else {
+                            $("#articles-container").html("<p>请稍后重试</p>");
+                        }
+                    },
+                    error: function() {
+                        $("#articles-container").html("<p>请稍后重试</p>");
+                    }
+                });
+            }
+            loadArticles(page, searchQuery);
+
+            //搜索功能
+            $("#search-input").on("input", function() {
+                searchQuery = $(this).val().trim();
+                loadArticles(page, searchQuery);
+            });
+
+            //分页按钮点击
+            $(document).on("click", ".page-link", function(e) {
+                e.preventDefault(); // 阻止默认行为
+                var page = $(this).data("page");
+                window.location.href = `/category.html?category=${encodeURIComponent(category)}&page=${page}`;
+            });
+        });
+
+        //导航类标识联控，按钮时触发二级跳转
+        $(".category-btn").on("click", function() {
+            var category = $(this).data("category");
+            window.location.href = `/category.html?category=${encodeURIComponent(category)}&page=1`; //传递当前分类和第一页
+        });
+    </script>
+</body>
+
+</html>
