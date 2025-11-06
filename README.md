@@ -61,13 +61,13 @@
 
 ##### Web_Development_Preweek Web程序设计实践周
 ![Static Badge](https://img.shields.io/badge/%E8%AF%BE%E7%A8%8B%E6%80%A7%E8%B4%A8-%E4%B8%93%E4%B8%9A%E5%AE%9E%E8%B7%B5%E5%91%A8-green)
-![Static Badge](https://img.shields.io/badge/%E4%BB%BB%E8%AF%BE%E6%95%99%E5%B8%88-%E5%B9%B8%E5%AE%8F-blue) ![Static Badge](https://img.shields.io/badge/%E6%8A%80%E6%9C%AF%E6%A0%88-HTML%2FCSS%2FJS%2FPython%2FFlask%2FMySQL%2.Net-purple)
+![Static Badge](https://img.shields.io/badge/%E4%BB%BB%E8%AF%BE%E6%95%99%E5%B8%88-%E5%B9%B8%E5%AE%8F-blue) ![Static Badge](https://img.shields.io/badge/%E6%8A%80%E6%9C%AF%E6%A0%88-HTML/CSS/JS/Python/Flask/MySQL-purple)
 
 ### 大三下学期
 
 ##### algo_Analysis&Design 算法分析与设计
 ![Static Badge](https://img.shields.io/badge/%E8%AF%BE%E7%A8%8B%E6%80%A7%E8%B4%A8-%E4%B8%93%E4%B8%9A%E5%BF%85%E4%BF%AE%E8%AF%BE-green)
- ![Static Badge](https://img.shields.io/badge/%E4%BB%BB%E8%AF%BE%E6%95%99%E5%B8%88-%E6%9D%A8%E9%B9%8F%E5%AE%87-blue) ![Static Badge](https://img.shields.io/badge/%E6%8A%80%E6%9C%AF%E6%A0%88-C%2C++.Net-purple)
+ ![Static Badge](https://img.shields.io/badge/%E4%BB%BB%E8%AF%BE%E6%95%99%E5%B8%88-%E6%9D%A8%E9%B9%8F%E5%AE%87-blue) ![Static Badge](https://img.shields.io/badge/%E6%8A%80%E6%9C%AF%E6%A0%88-C%2C++-purple)
 
 
 
