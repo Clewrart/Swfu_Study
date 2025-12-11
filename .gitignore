@@ -1,4 +1,7 @@
 *.docx
 *.zip
 *.pdf
+*.png
 机器学习/
+*-checkpoint.ipynb
+.DS*
