@@ -1,7 +1,9 @@
 # Study_SWFU课程学习仓库
 感谢各位老师的指导与教导！
-### 大一为啥没有？看Issues！我还在湿地学院学环境！
+### 大一为啥没有？看Issues！我还在湿地学院学环境！可以看课程名字大概率在大二
 如有疑问欢迎Issue或者email `siyu7805@gmail.com`
+## 感谢各位老师谆谆教诲和支持！本科我已于2026.06毕业，该仓库维护将不再频繁！
+
 ### 大二上学期
 
 ##### C_Program_Class C语言课程
@@ -76,4 +78,3 @@
 ![Static Badge](https://img.shields.io/badge/%E4%BB%BB%E8%AF%BE%E6%95%99%E5%B8%88-%E5%BC%A0%E5%AE%8F%E4%BC%9F-blue)
 ![Static Badge](https://img.shields.io/badge/%E6%8A%80%E6%9C%AF%E6%A0%88-Python/TensorFlowKeras-purple)
 
-## 感谢各位老师谆谆教诲和支持！按照相关要求我已于2026.06毕业该仓库不再自主维护！
