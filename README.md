@@ -71,7 +71,9 @@
 
 ### 大四上学期
 
-##### Machine Learning 机器学习与应用（未合并，在分支）
+##### Machine Learning 机器学习与应用
 ![Static Badge](https://img.shields.io/badge/%E8%AF%BE%E7%A8%8B%E6%80%A7%E8%B4%A8-%E4%B8%93%E4%B8%9A%E5%BF%85%E4%BF%AE%E8%AF%BE-green) 
 ![Static Badge](https://img.shields.io/badge/%E4%BB%BB%E8%AF%BE%E6%95%99%E5%B8%88-%E5%BC%A0%E5%AE%8F%E4%BC%9F-blue)
 ![Static Badge](https://img.shields.io/badge/%E6%8A%80%E6%9C%AF%E6%A0%88-Python/TensorFlowKeras-purple)
+
+## 感谢各位老师谆谆教诲和支持！按照相关要求我已于2026.06毕业该仓库不再自主维护！
